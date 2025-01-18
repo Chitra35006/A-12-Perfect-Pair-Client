@@ -6,7 +6,7 @@ import NavBar from "../Pages/Shared/NavBar/NavBar";
 
 const MainLayout = () => {
     return (
-        <div className="font-roboto">
+        <div className="font-roboto overflow-x-hidden">
             
             <NavBar></NavBar>
             <Outlet></Outlet>

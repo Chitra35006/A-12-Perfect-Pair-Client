@@ -17,6 +17,7 @@ const NavBar = () => {
 
   const {theme, toggleTheme} = useTheme();
   const links = <>
+              <li className="hover:text-lime-400"><NavLink className={({ isActive }) => isActive ? "text-lime-400 font-bold border-b-4 pb-1 border-green-700" : "text-gray-500 hover:text-lime-500"} to="/" >Home</NavLink></li>
               <li className="hover:text-lime-400"><NavLink className={({ isActive }) => isActive ? "text-lime-400 font-bold border-b-4 pb-1 border-green-700" : "text-gray-500 hover:text-lime-500"} to="/bioData" >BioDatas</NavLink></li>
               <li className="hover:text-lime-400"><NavLink className={({ isActive }) => isActive ? "text-lime-400 font-bold border-b-4 pb-1 border-green-700" : "text-gray-500 hover:text-lime-500"} to="/aboutUs" >About Us</NavLink></li>
               <li className="hover:text-lime-400"><NavLink className={({ isActive }) => isActive ? "text-lime-400 font-bold border-b-4 pb-1 border-green-700" : "text-gray-500 hover:text-lime-500"} to="/contactUs" >Contact Us</NavLink></li>

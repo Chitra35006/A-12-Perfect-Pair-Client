@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "^5.5.2",
+    "animate.css": "^4.1.1",
     "antd": "^5.23.1",
     "dayjs": "^1.11.13",
     "localforage": "^1.10.0",
