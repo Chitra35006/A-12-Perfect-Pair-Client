@@ -6,18 +6,19 @@ import logo from "../../assets/logo.png";
 const Footer = () => {
   const { theme } = useTheme();
   return (
-    <div className="border-none md:border-dashed md:border-lime-400 md:border-x-2 container mx-auto px-6 py-10 bg-slate-800">
+    <div className={`border-none md:border-double shadow-md rounded-md md:border-cyan-700 md:border-x-2 container mx-auto px-6 py-10  ${theme ==="light" ? "bg-slate-600" : "bg-[linear-gradient(25deg,#99f6e4_5%,_white_40%,_white_40%,#bef264_100%)]"}`}>
       <div className="flex flex-col md:flex-row items-center justify-center mb-4">
         {/* Brand Section */}
         <div className="text-xl font-bold">
           <a href="/" className="text-gray-800 flex items-center text-2xl">
-            <img className="w-10 mr-2" src={logo} alt="Logo" />{" "}
-            <h1 className="text-gray-300">
+            <img className="w-10 mr-2 animate-pulse" src={logo} alt="Logo" />{" "}
+            <h1 className={`${theme === "light"? "text-gray-300":"text-black"}`}>
               <span className="text-lime-500">P</span>erfect{" "}
               <span className="text-lime-500">P</span>air
             </h1>
           </a>
         </div>
+        
       </div>
       {/* Social Media Icons */}
       <div className="flex justify-center items-center space-x-6 my-6 md:mt-0">
@@ -25,7 +26,7 @@ const Footer = () => {
           href="https://facebook.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-gray-400 hover:text-blue-500 transition-colors border-dashed border-2 border-blue-500 p-4"
+          className="text-gray-400  hover:text-blue-500 transition-colors border-dashed border-2 border-blue-500 p-4"
         >
           <FaFacebook size={24} />
         </a>
@@ -63,25 +64,25 @@ const Footer = () => {
         <div className="flex space-x-4 text-sm">
           <a
             href="/about"
-            className="text-lime-400 hover:text-white transition-colors"
+            className={` hover:text-white transition-colors ${theme ==="light" ? "text-lime-400" : "text-lime-600"} ${theme === "light"?"hover:text-white":"hover:text-black"}`}
           >
             About Us
           </a>
           <a
             href="/services"
-            className="text-gray-400 hover:text-white transition-colors"
+            className={`hover:text-white transition-colors ${theme ==="light" ? "text-gray-400" : "text-gray-600"} ${theme === "light"?"hover:text-white":"hover:text-black"}`}
           >
             Services
           </a>
           <a
             href="/contact"
-            className="text-lime-400 hover:text-white transition-colors"
+            className={`hover:text-white transition-colors ${theme ==="light" ? "text-lime-400" : "text-lime-600"} ${theme === "light"?"hover:text-white":"hover:text-black"}`}
           >
             Contact
           </a>
           <a
             href="/services"
-            className="text-gray-400 hover:text-white transition-colors"
+            className={`hover:text-white transition-colors ${theme ==="light" ? "text-gray-400" : "text-gray-600"} ${theme === "light"?"hover:text-white":"hover:text-black"}`}
           >Subscribe</a>
         </div>
         {/* email field */}
@@ -89,12 +90,12 @@ const Footer = () => {
 
       {/* Input Field */}
       
-
+      
 
           
         {/* Copyright */}
-        <p className="text-gray-400 text-sm mt-4 md:mt-0">
-          © 2025 <span className="text-lime-400">Perfect Pair</span>. All Rights Reserved.
+        <p className={`text-sm mt-4 md:mt-0 ${theme === "light"? "text-gray-400" : "text-gray-700"}`}>
+          © 2025 <span className="text-lime-500">Perfect Pair</span>. All Rights Reserved.
         </p>
       </div>
     </div>

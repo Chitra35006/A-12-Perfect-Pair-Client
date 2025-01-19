@@ -1,4 +1,4 @@
-import { TextField } from "@mui/material";
+import { TextField, useTheme } from "@mui/material";
 import React from "react";
 import { Helmet } from "react-helmet";
 import { useForm } from "react-hook-form";
@@ -7,7 +7,8 @@ import { Link } from "react-router-dom";
 import Lottie from "lottie-react";
 import regAnimation from "../../assets/lottie.json"
 import DynamicButton from "../Buttons/DynamicButton";
-
+import "animate.css";
+import logo from "../../assets/logo.png"
 const SignUp = () => {
   const {
     register,
@@ -18,17 +19,41 @@ const SignUp = () => {
   const onSubmit = (data) => {
     console.log(data);
   };
+  const {theme} = useTheme();
   return (
     <div className="my-10 p-10 bg-[linear-gradient(25deg,#99f6e4_5%,_white_30%,_white_70%,#d9f99d_100%)]">
       <Helmet>
         <title>Perfect Pair | Register</title>
       </Helmet>
-      <div className="flex justify-center items-center"><h2 className="text-bold md:text-2xl text-lime-600 p-1 border-y-2 border-blue-300 px-2">Register Now</h2></div>
+      <div className="text-xl font-bold flex my-4 justify-center items-center">
+              <a
+                href="/"
+                className="text-gray-800 flex items-center md:text-2xl text-xl"
+              >
+                <img className="w-10 mr-2 animate-pulse" src={logo} alt="Logo" />{" "}
+                <h1
+                  className={`${
+                    theme === "dark" ? "text-gray-200" : "text-black"
+                  } animate__animated animate__bounce`}
+                  style={{
+                    animationIterationCount: 2, // Run the animation only once
+                  }}
+                >
+                  <span className="text-lime-500">P</span>erfect{" "}
+                  <span className="text-lime-500">P</span>air
+                </h1>
+              </a>
+            </div>
       <div className="grid grid-cols-12 md:flex-col flex-row min-h-screen bg-[linear-gradient(25deg,#bef264_5%,_white_30%,_white_70%,#99f6e4_100%)] rounded-xl shadow-md">
         
   {/* Form Section */}
-  <div className="md:col-span-6 col-span-12 order-2 md:order-1 border-lime-400 border-dashed border-l-4 flex  items-center justify-center p-6">
+  <div className="md:col-span-6 col-span-12 order-2 md:order-1 border-lime-400 border-dashed border-l-4 flex  items-center justify-center p-6 relative">
     {/* Form */}
+    <div className="flex absolute top-5  justify-center items-center">
+            <h2 className="text-bold md:text-2xl text-lime-600 p-1 border-y-2 border-blue-300 px-2">
+              Register Now
+            </h2>
+          </div>
     <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-md">
       {/* Name */}
       <div className="form-control w-full my-4">

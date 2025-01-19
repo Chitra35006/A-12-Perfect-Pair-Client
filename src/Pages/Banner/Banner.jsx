@@ -44,7 +44,7 @@ const Banner = () => {
   };
 
   return (
-    <div className="relative w-11/12 mx-auto my-6">
+    <div className="relative w-11/12 mx-auto mt-20">
       <div className="text-white md:h-[450px] lg:min-h-screen flex items-center justify-center">
         <div
           className="absolute inset-0 bg-cover bg-center object-cover rounded-lg"
