@@ -21,7 +21,7 @@ const SignUp = () => {
   };
   const {theme} = useTheme();
   return (
-    <div className="my-10 p-10 bg-[linear-gradient(25deg,#99f6e4_5%,_white_30%,_white_70%,#d9f99d_100%)]">
+    <div className="p-10 bg-[linear-gradient(25deg,#99f6e4_5%,_white_30%,_white_70%,#d9f99d_100%)]">
       <Helmet>
         <title>Perfect Pair | Register</title>
       </Helmet>
@@ -49,12 +49,12 @@ const SignUp = () => {
   {/* Form Section */}
   <div className="md:col-span-6 col-span-12 order-2 md:order-1 border-lime-400 border-dashed border-l-4 flex  items-center justify-center p-6 relative">
     {/* Form */}
-    <div className="flex absolute top-5  justify-center items-center">
+    <div className="flex  absolute top-4 md:top-5  justify-center items-center">
             <h2 className="text-bold md:text-2xl text-lime-600 p-1 border-y-2 border-blue-300 px-2">
               Register Now
             </h2>
           </div>
-    <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-md">
+    <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-md md:my-0 my-8">
       {/* Name */}
       <div className="form-control w-full my-4">
         <TextField
