@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Layout, Menu, Avatar, Drawer, Button } from "antd";
 import { UserOutlined, MenuOutlined, CloseOutlined } from "@ant-design/icons";
 import { Header } from "antd/es/layout/layout";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../../../assets/logo.png";
 import { useTheme } from "../../../Provider/ThemeContext";
 import { FaSun, FaMoon } from "react-icons/fa";
@@ -71,16 +71,17 @@ const NavBar = () => {
     </>
   );
   return (
-    <Layout>
+  <div className="">
+      <Layout>
       <Header
         className={`${
           theme === "dark" ? "bg-slate-800" : "bg-white"
-        } shadow-md`}
+        } shadow-md fixed top-0 left-0 w-full z-50`}
       >
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="text-xl font-bold">
-            <a href="/" className="text-gray-800 flex items-center text-2xl">
+            <a href="/" className="text-gray-800 flex items-center md:text-2xl text-xl">
               <img className="w-10 mr-2" src={logo} alt="Logo" />{" "}
               <h1
                 className={`${
@@ -95,37 +96,42 @@ const NavBar = () => {
 
           {/* Desktop Menu */}
           <div className="navbar-center hidden lg:flex">
-            <ul className="menu menu-horizontal space-x-4 font-medium text-lg flex">
+            <ul className="menu menu-horizontal space-x-4 pt-3 font-medium text-lg flex">
               {links}
             </ul>
           </div>
 
           {/* Right Side */}
-          <div className="flex flex-row gap-3">
-            <OutLineButton text="LOGIN"></OutLineButton>
-            <button
-              onClick={toggleTheme}
-              className="btn btn-ghost rounded-full"
-            >
-              {theme === "dark" ? (
-                <FaSun
-                  className={`${
-                    theme === "dark" ? "text-gray-200" : "text-black"
-                  }`}
-                />
-              ) : (
-                <FaMoon
-                  className={`${
-                    theme === "dark" ? "text-gray-200" : "text-black"
-                  }`}
-                />
-              )}
-            </button>
-            <Avatar
-              className=" hidden lg:block bg-lime-500"
-              icon={<UserOutlined />}
-            />
-          </div>
+         <div className="flex items-center gap-3">
+  <Link className="hidden lg:block" to="/login">
+    <OutLineButton  text="LOGIN" />
+  </Link>
+  
+  <button
+    onClick={toggleTheme}
+    className="btn btn-ghost rounded-full"
+  >
+    {theme === "dark" ? (
+      <FaSun
+        className={`${
+          theme === "dark" ? "text-gray-200" : "text-black"
+        }`}
+      />
+    ) : (
+      <FaMoon
+        className={`${
+          theme === "dark" ? "text-gray-200" : "text-black"
+        }`}
+      />
+    )}
+  </button>
+
+  <Avatar
+    className="hidden lg:block bg-lime-500"
+    icon={<UserOutlined />}
+  />
+</div>
+
 
           {/* Mobile Menu (Hamburger Icon) */}
           <div className="md:hidden">
@@ -148,12 +154,18 @@ const NavBar = () => {
         >
           {" "}
           <Avatar className=" bg-lime-500" icon={<UserOutlined />} />
+          <Link to="/login">
+          <OutLineButton  text="LOGIN" />
+  </Link>
+          <div>
           <ul className="menu menu-horizontal space-x-4 font-medium text-lg flex flex-col">
             {links}
           </ul>
+          </div>
         </Drawer>
       </Header>
     </Layout>
+  </div>
   );
 };
 

@@ -9,7 +9,9 @@ const MainLayout = () => {
         <div className="font-roboto overflow-x-hidden">
             
             <NavBar></NavBar>
+            <div className="flex-grow ">
             <Outlet></Outlet>
+            </div>
             <footer className="bg-gray-900 p-4 w-full mt-auto text-center text-white">
             <Footer></Footer>
             </footer>

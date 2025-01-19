@@ -7,6 +7,7 @@ import BioData from "../Pages/BioDatas/BioData";
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import ContactUs from "../Pages/ContactUs/ContactUs";
 import SignIn from "../Pages/SignIn/SignIn";
+import SignUp from "../Pages/SignUp/SignUp";
 
   export const router = createBrowserRouter([
     {
@@ -32,6 +33,10 @@ import SignIn from "../Pages/SignIn/SignIn";
         {
             path:"login",
             element:<SignIn></SignIn>
+        },
+        {
+          path:"signup",
+          element:<SignUp></SignUp>
         }
     ]
 }
