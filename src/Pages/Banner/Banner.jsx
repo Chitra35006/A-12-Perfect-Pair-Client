@@ -1,6 +1,7 @@
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { useState } from "react";
-import { Button } from "antd";
+
+import PrimaryButton from "../Buttons/PrimaryButton";
 
 const captions = [
   {
@@ -66,7 +67,8 @@ const Banner = () => {
                 <p className="md:p-0 p-4 text-gray-300 text-lg lg:w-auto md:w-72  animate__animated animate__backInLeft">
                   {captions[currentSlide].description}
                 </p>
-                <Button className="md:text-2xl text-base md:px-6 px-2 py-6 md:py-8 border-none font-bold bg-gradient-to-r from-lime-400 via-lime-500 to-green-700">Explore More</Button>
+                {/* <Button className="md:text-2xl text-base md:px-6 px-2 py-6 md:py-8 border-none font-bold bg-gradient-to-r from-lime-400 via-lime-500 to-green-700">Explore More</Button> */}
+              <PrimaryButton text="EXPLORE NOW"></PrimaryButton>
               </div>
             </div>
 
@@ -86,8 +88,9 @@ const Banner = () => {
                       alt={destination.name}
                       className="rounded-lg object-cover md:w-full lg:h-[300px]"
                     />
-                    <div className="font-medium md:font-bold hidden lg:block bg-gray-200 text-black opacity-60 absolute lg:top-16 lg:-right-10 lg:rotate-90 transform ">
-                      <p className="text-center px-2">{destination.name}</p>
+                    <div className="font-medium md:font-bold  hidden lg:block bg-gray-200 text-black opacity-60 absolute lg:top-16 lg:-right-10 lg:rotate-90 transform "
+                    >
+                      <p className="text-center px-2 my-0">{destination.name}</p>
                     </div>
                   </div>
                 </div>
