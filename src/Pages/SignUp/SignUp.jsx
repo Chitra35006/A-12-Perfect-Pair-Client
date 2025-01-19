@@ -2,7 +2,7 @@ import { TextField } from "@mui/material";
 import React from "react";
 import { Helmet } from "react-helmet";
 import { useForm } from "react-hook-form";
-import PrimaryButton from "../Buttons/PrimaryButton";
+
 import { Link } from "react-router-dom";
 import Lottie from "lottie-react";
 import regAnimation from "../../assets/lottie.json"
