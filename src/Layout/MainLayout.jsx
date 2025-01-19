@@ -10,7 +10,9 @@ const MainLayout = () => {
             
             <NavBar></NavBar>
             <Outlet></Outlet>
+            <footer className="bg-gray-900 p-4 w-full mt-auto text-center text-white">
             <Footer></Footer>
+            </footer>
         </div>
     );
 };
