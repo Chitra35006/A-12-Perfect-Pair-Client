@@ -10,7 +10,7 @@ import OutLineButton from "../../../Pages/Buttons/OutLineButton";
 import "animate.css";
 import useAuth from "../../../hooks/useAuth";
 import PrimaryButton from "../../Buttons/PrimaryButton";
-import SecondaryButton from "../../Buttons/SecondaryButton"
+import SecondaryButton from "../../Buttons/SecondaryButton";
 import { Tooltip } from "@mui/material";
 
 const NavBar = () => {
@@ -22,14 +22,14 @@ const NavBar = () => {
   };
 
   const { theme, toggleTheme } = useTheme();
-  const {user,logOut} = useAuth();
-console.log(user);
-  const handleLogout = () =>{
+  const { user, logOut } = useAuth();
+  console.log(user);
+  const handleLogout = () => {
     logOut()
-    .then(()=>{})
-      .catch(error => console.log(error))
-    }
-  
+      .then(() => {})
+      .catch((error) => console.log(error));
+  };
+
   const links = (
     <>
       <li className="hover:text-lime-400">
@@ -80,6 +80,20 @@ console.log(user);
           Contact Us
         </NavLink>
       </li>
+      {user?.email && (
+        <li className="hover:text-lime-400">
+          <NavLink
+            className={({ isActive }) =>
+              isActive
+                ? "text-lime-400 font-bold border-b-4 pb-1 border-green-700"
+                : "text-gray-500 hover:text-lime-500"
+            }
+            to="/dashboard"
+          >
+            Dashboard
+          </NavLink>
+        </li>
+      )}
     </>
   );
   return (
@@ -97,7 +111,11 @@ console.log(user);
                 href="/"
                 className="text-gray-800 flex items-center md:text-2xl text-xl"
               >
-                <img className="w-10 mr-2 animate-pulse" src={logo} alt="Logo" />{" "}
+                <img
+                  className="w-10 mr-2 animate-pulse"
+                  src={logo}
+                  alt="Logo"
+                />{" "}
                 <h1
                   className={`${
                     theme === "dark" ? "text-gray-200" : "text-black"
@@ -121,8 +139,6 @@ console.log(user);
 
             {/* Right Side */}
             <div className="flex items-center gap-3">
-              
-
               <button
                 onClick={toggleTheme}
                 className="btn btn-ghost rounded-full"
@@ -142,45 +158,49 @@ console.log(user);
                 )}
               </button>
 
-              {
-  user ? (
-    <>
-       <Tooltip title={user?.displayName || "User"} arrow>
-        {user.photoURL ? (
-          <img
-            src={user.photoURL}
-            alt="Profile"
-            className="w-14 h-14 border-2 object-cover rounded-full"
-          />
-        ) : (
-          /* Show default avatar when photoURL is not available */
-          <Avatar
-            className="bg-lime-500 w-12 h-12"
-            icon={<UserOutlined />}
-          />
-        )}
-      </Tooltip>
-    </>
-  ) : (
-    <>
-      {/* Default avatar for non-logged-in users */}
-      <Avatar
-        className="bg-lime-500 w-12 h-12"
-        icon={<UserOutlined />}
-      />
-    </>
-  )
-}
-
-              {
-                user ? <>
-                <SecondaryButton  onClick={handleLogout} text={"LOGOUT"}></SecondaryButton>
-                </>:<>
-                <Link className="hidden lg:block" to="/login">
-                <OutLineButton text="LOGIN" />
-                </Link>
+              {user ? (
+                <>
+                  <Tooltip title={user?.displayName || "User"} arrow>
+                    {user.photoURL ? (
+                      <img
+                        src={user.photoURL}
+                        alt="Profile"
+                        className="w-12 h-12 hidden lg:block border-2 border-lime-400 object-cover rounded-full"
+                      />
+                    ) : (
+                      /* Show default avatar when photoURL is not available */
+                      <Avatar
+                        className="bg-lime-500 w-12 h-12"
+                        icon={<UserOutlined />}
+                      />
+                    )}
+                  </Tooltip>
                 </>
-              }
+              ) : (
+                <>
+                  {/* Default avatar for non-logged-in users */}
+                  <Avatar
+                    className="bg-lime-500 w-12 h-12 hidden lg:block"
+                    icon={<UserOutlined />}
+                  />
+                </>
+              )}
+
+              {user ? (
+                <>
+                  <SecondaryButton
+                    onClick={handleLogout}
+                    text={"LOGOUT"}
+                    customClass="hidden lg:block"
+                  ></SecondaryButton>
+                </>
+              ) : (
+                <>
+                  <Link className="hidden lg:block" to="/login">
+                    <OutLineButton text="LOGIN" />
+                  </Link>
+                </>
+              )}
             </div>
 
             {/* Mobile Menu (Hamburger Icon) */}
@@ -203,10 +223,47 @@ console.log(user);
             closeIcon={<CloseOutlined />}
           >
             {" "}
-            <Avatar className=" bg-lime-500" icon={<UserOutlined />} />
-            <Link className="ml-4" to="/login">
-              <OutLineButton text="LOGIN" />
-            </Link>
+            {user ? (
+              <>
+                <Tooltip title={user?.displayName || "User"} arrow>
+                  {user.photoURL ? (
+                    <img
+                      src={user.photoURL}
+                      alt="Profile"
+                      className="w-12 h-12 border-2 my-2 border-lime-400 object-cover rounded-full"
+                    />
+                  ) : (
+                    /* Show default avatar when photoURL is not available */
+                    <Avatar
+                      className="bg-lime-500 w-12 h-12 my-2"
+                      icon={<UserOutlined />}
+                    />
+                  )}
+                </Tooltip>
+              </>
+            ) : (
+              <>
+                {/* Default avatar for non-logged-in users */}
+                <Avatar
+                  className="bg-lime-500 w-12 h-12 my-2"
+                  icon={<UserOutlined />}
+                />
+              </>
+            )}
+            {user ? (
+              <>
+                <SecondaryButton
+                  onClick={handleLogout}
+                  text={"LOGOUT"}
+                ></SecondaryButton>
+              </>
+            ) : (
+              <>
+                <Link className="hidden lg:block my-2" to="/login">
+                  <OutLineButton text="LOGIN" />
+                </Link>
+              </>
+            )}
             <div>
               <ul className="menu menu-horizontal space-x-4 font-medium text-lg flex flex-col">
                 {links}
