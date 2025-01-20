@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Lottie from "lottie-react";
 import { TextField } from "@mui/material";
 import { useForm } from "react-hook-form";
@@ -10,16 +10,52 @@ import { IoLogoGoogle } from "react-icons/io5";
 import "animate.css";
 import logo from "../../assets/logo.png";
 import { useTheme } from "../../Provider/ThemeContext";
+import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
+import { MdError } from "react-icons/md";
 
 const SignIn = () => {
+  const{signIn} = useAuth();
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
   } = useForm();
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+  const [errorMessage, setErrorMessage] = useState("");
+  //handleSubmit
   const onSubmit = (data) => {
     console.log(data);
+    signIn(data.email,data.password)
+    .then(result =>{
+      const user = result.user;
+      console.log(user);
+      Swal.fire({
+        title: 'User Login Successful.',
+        showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+        }
+    });
+    navigate(from, { replace: true });
+    })
+    .catch((error) => {
+      console.error(error);
+      if (error.message.includes("user-not-found")) {
+        setErrorMessage("This email is not registered. Please sign up first.");
+      } else if (error.message.includes("wrong-password")) {
+        setErrorMessage("The password is incorrect. Please try again.");
+      } else {
+        setErrorMessage("An unexpected error occurred. Please try again.");
+      }
+    });
+
   };
   const { theme } = useTheme();
   return (
@@ -36,7 +72,7 @@ const SignIn = () => {
           <h1
             className={`${
               theme === "dark" ? "text-gray-200" : "text-black"
-            } animate__animated animate__bounce`}
+            } animate__animated animate__bounce my-2`}
             style={{
               animationIterationCount: 2, // Run the animation only once
             }}
@@ -66,7 +102,11 @@ const SignIn = () => {
                 {...register("email", { required: true })}
                 required
               />
+              {errors.email && (
+                <span className="text-red-600">Email is required</span>
+              )}
             </div>
+            
 
             {/* Password */}
             <div className="form-control w-full my-4">
@@ -78,7 +118,17 @@ const SignIn = () => {
                 {...register("password", { required: true })}
                 required
               />
+              {errors.password && (
+                <span className="text-red-600">Email is required</span>
+              )}
             </div>
+            {/* Error Message */}
+                         {errorMessage && (
+                          <p className="text-red-600 mt-2 flex items-center">
+                            <MdError className="text-yellow-400 bg-red-600 rounded-full mr-1" />
+                            {errorMessage}
+                          </p>
+                        )}
 
             <p className="text-center text-gray-500 font-semibold">
               Don't have an account?{" "}
@@ -93,7 +143,7 @@ const SignIn = () => {
           </form>
 
           {/* Google Button */}
-          <div className="mt-6 w-full flex justify-center items-center">
+          <div className="mt-6 w-3/4 flex justify-center items-center">
             <DynamicButton color="violet">
               <div className="flex flex-row items-center justify-center gap-2">
                 <IoLogoGoogle className="text-white text-2xl" />

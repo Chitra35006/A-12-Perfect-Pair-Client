@@ -12,7 +12,7 @@ const Footer = () => {
         <div className="text-xl font-bold">
           <a href="/" className="text-gray-800 flex items-center text-2xl">
             <img className="w-10 mr-2 animate-pulse" src={logo} alt="Logo" />{" "}
-            <h1 className={`${theme === "light"? "text-gray-300":"text-black"}`}>
+            <h1 className={`${theme === "light"? "text-gray-300":"text-black"} my-2`}>
               <span className="text-lime-500">P</span>erfect{" "}
               <span className="text-lime-500">P</span>air
             </h1>
@@ -42,7 +42,7 @@ const Footer = () => {
           href="https://instagram.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-gray-400 hover:text-pink-500 transition-colors border-dashed border-2 border-pink-400 p-4"
+          className="text-gray-400  hover:text-pink-500 transition-colors border-dashed border-2 border-pink-400 p-4"
         >
           <FaInstagram size={24} />
         </a>

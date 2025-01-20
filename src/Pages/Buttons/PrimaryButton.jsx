@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { ThemeContext } from "../../Provider/ThemeContext";
 
 const PrimaryButton = ({ text, customClass }) => {
-  const { theme } = useContext(ThemeContext); // Access theme from context
+  // const { theme } = useContext(ThemeContext); // Access theme from context
   const [isHovered, setIsHovered] = useState(false);
 
   return (

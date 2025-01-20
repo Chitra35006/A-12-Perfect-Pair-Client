@@ -16,7 +16,7 @@ const MainLayout = () => {
             <div className="flex-grow ">
             <Outlet></Outlet>
             </div>
-            {noHeaderFooter || <footer className={`p-4 w-full mt-auto text-center ${theme ==="light"?"bg-[linear-gradient(25deg,#bef264_5%,_white_40%,_white_40%,#99f6e4_100%)]" :"bg-sky-950"}`}>
+            {noHeaderFooter || <footer className={`p-4 w-full mt-auto text-center ${theme ==="light"?"bg-[linear-gradient(25deg,#bef264_5%,_white_40%,_white_40%,#99f6e4_100%)]" :"bg-slate-800"}`}>
             <Footer></Footer>
             </footer>}
         </div>
