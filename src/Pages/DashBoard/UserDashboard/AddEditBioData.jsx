@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Button } from "@mui/material";
 import { DatePicker, ConfigProvider } from "antd";
 import "antd/dist/reset.css";
 import locale from "antd/es/locale/en_US";
 import useAuth from "../../../hooks/useAuth";
+import { NavLink } from "react-router-dom";
+import { FaHome, FaUsers, FaBookReader } from "react-icons/fa";  // Updated import
+import { MdDashboard } from "react-icons/md";
+import { SiAdobepremierepro } from "react-icons/si";
+import { RiContactsBookFill } from "react-icons/ri";
+import { IoIosHeartHalf } from "react-icons/io";
+import { PiReadCvLogoFill } from "react-icons/pi";
+import { IoIosContacts } from "react-icons/io";
+import { IoHeartCircleOutline } from "react-icons/io5"
 
 const AddEditBioData = () => {
     const{user} = useAuth();
@@ -19,10 +28,15 @@ const AddEditBioData = () => {
     console.log(data);
   };
 
+ ;
+
   return (
     <div className="bg-fixed min-h-screen bg-[linear-gradient(15deg,#99f6e4_25%,_white_20%,_white_40%,#f0fdf4_100%)]">
-      <div className="bg-white mx-4 mt-8 p-8 shadow-xl rounded-lg">
-        <h1 className="text-xl font-bold mb-4 text-indigo-900 border-double border-y-2 w-1/4 text-center border-lime-400 py-1">Add Bio Data</h1>
+      <div className="bg-teal-100 mx-4 mt-8 p-8 shadow-xl rounded-lg">
+        
+         
+         
+        <h1 className="text-xl font-bold mb-4 text-indigo-900 border-double border-y-2 md:w-1/4 w-2/4 text-center border-lime-400 py-1">Add Bio Data</h1>
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="w-full max-w-2xl space-y-6"
@@ -454,7 +468,7 @@ const AddEditBioData = () => {
     {...register("phone", {
       required: "Phone number is required",
       pattern: {
-        value: /^\+880[0-9]{8}$/, // Ensures the phone number starts with +880 and is followed by 8 digits
+        value: /^\+8801[0-9]{9}$/, // Ensures the phone number starts with +880 and is followed by 8 digits
         message: "Please enter a valid phone number starting with +880 and having 11 digits",
       },
     })}
@@ -468,18 +482,22 @@ const AddEditBioData = () => {
   )}
 </div>
 
+
           </div>
 
           
 
           {/* Submit Button */}
           <div className="flex justify-end">
-            <Button className="bg-red-950" type="submit" variant="contained" color="primary">
+            <Button className="text white  hover:text-lime-300 bg-gradient-to-r from-indigo-900 via-indigo-900 to-indigo-900" type="submit" variant="contained" color="primary">
               Submit
             </Button>
           </div>
         </form>
+       
       </div>
+
+      
     </div>
   );
 };
