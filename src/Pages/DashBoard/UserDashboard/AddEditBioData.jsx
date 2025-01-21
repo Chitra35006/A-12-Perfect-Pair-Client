@@ -5,15 +5,7 @@ import { DatePicker, ConfigProvider } from "antd";
 import "antd/dist/reset.css";
 import locale from "antd/es/locale/en_US";
 import useAuth from "../../../hooks/useAuth";
-import { NavLink } from "react-router-dom";
-import { FaHome, FaUsers, FaBookReader } from "react-icons/fa";  // Updated import
-import { MdDashboard } from "react-icons/md";
-import { SiAdobepremierepro } from "react-icons/si";
-import { RiContactsBookFill } from "react-icons/ri";
-import { IoIosHeartHalf } from "react-icons/io";
-import { PiReadCvLogoFill } from "react-icons/pi";
-import { IoIosContacts } from "react-icons/io";
-import { IoHeartCircleOutline } from "react-icons/io5"
+
 
 const AddEditBioData = () => {
     const{user} = useAuth();
@@ -32,7 +24,7 @@ const AddEditBioData = () => {
 
   return (
     <div className="bg-fixed min-h-screen bg-[linear-gradient(15deg,#99f6e4_25%,_white_20%,_white_40%,#f0fdf4_100%)]">
-      <div className="bg-teal-100 mx-4 mt-8 p-8 shadow-xl rounded-lg">
+      <div className="bg-[linear-gradient(25deg,#99f6e4_5%,_white_40%,_white_40%,#bef264_100%)] mx-4 mt-8 p-8 shadow-xl rounded-lg">
         
          
          
