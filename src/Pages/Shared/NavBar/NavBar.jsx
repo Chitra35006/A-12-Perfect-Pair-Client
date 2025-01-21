@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Layout, Menu, Avatar, Drawer, Button } from "antd";
+import { Layout, Menu, Drawer, Button } from "antd";
 import { UserOutlined, MenuOutlined, CloseOutlined } from "@ant-design/icons";
 import { Header } from "antd/es/layout/layout";
 import { Link, NavLink } from "react-router-dom";
@@ -12,6 +12,7 @@ import useAuth from "../../../hooks/useAuth";
 import PrimaryButton from "../../Buttons/PrimaryButton";
 import SecondaryButton from "../../Buttons/SecondaryButton";
 import { Tooltip } from "@mui/material";
+
 
 const NavBar = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);

@@ -18,6 +18,7 @@ import AddEditBioData from "../Pages/DashBoard/UserDashboard/AddEditBioData";
 import ViewBioData from "../Pages/DashBoard/UserDashboard/ViewBioData";
 import MyContactRequest from "../Pages/DashBoard/UserDashboard/MyContactRequest";
 import FavouriteBioData from "../Pages/DashBoard/UserDashboard/FavouriteBioData";
+import GotMarriedRoute from "../Pages/DashBoard/UserDashboard/GotMarriedRoute";
   export const router = createBrowserRouter([
     {
       path: "/",
@@ -88,6 +89,10 @@ import FavouriteBioData from "../Pages/DashBoard/UserDashboard/FavouriteBioData"
     {
       path:"favBioData",
       element:<FavouriteBioData></FavouriteBioData>
+    },
+    {
+      path:"gotMarried",
+      element:<GotMarriedRoute></GotMarriedRoute>
     }
   ]
 }

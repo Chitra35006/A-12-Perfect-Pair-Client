@@ -11,6 +11,9 @@ export default {
       fontFamily: {
         roboto: ['Roboto', 'sans-serif'],
       },
+      colors: {
+        lime: require('tailwindcss/colors').lime,
+      },
       animation: {
         bounce: 'bounce 1s infinite',
       },
