@@ -3,7 +3,7 @@ import React, { useContext, useState } from "react";
 import { Helmet } from "react-helmet";
 import { useForm } from "react-hook-form";
 import { MdError } from "react-icons/md";
-import { Link, useNavigation } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import Lottie from "lottie-react";
 import regAnimation from "../../assets/lottie.json";
 import DynamicButton from "../Buttons/DynamicButton";
@@ -11,6 +11,7 @@ import "animate.css";
 import logo from "../../assets/logo.png";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 const SignUp = () => {
   const{createUser,updateUserProfile} = useAuth();
   const {
@@ -19,11 +20,14 @@ const SignUp = () => {
     reset,
     formState: { errors },
   } = useForm();
- const navigate = useNavigation();
-  //handleSubmit
- 
   const { theme } = useTheme();
   const [errorMessage, setErrorMessage] = useState("");
+ const navigate = useNavigate();
+
+ const axiosPublic = useAxiosPublic();
+  //handleSubmit
+ 
+ 
 
   const onSubmit = (data) => {
     console.log(data);
@@ -33,8 +37,17 @@ const SignUp = () => {
       console.log(logggedUser);
       updateUserProfile(data.name, data.photoURL)
       .then(()=>{
-        console.log('User profile info updated');
-        reset();
+
+        const userInfo={
+          name: data.name,
+          email:data.email,
+          photo:data.photoURL
+          
+        }
+        axiosPublic.post('/users',userInfo)
+        .then(res =>{
+          if(res.data.insertedId){
+            reset();
         Swal.fire({
           position: 'top-end',
           icon: 'success',
@@ -43,6 +56,10 @@ const SignUp = () => {
           timer: 1500
       });
       navigate('/');
+          }
+        })
+        
+     
       
     })
     .then(error => console.log(error))
@@ -182,8 +199,8 @@ const SignUp = () => {
 
             <p className="text-center text-gray-500 font-semibold">
               Already Registered? Go to{" "}
-              <Link className="md:ml-2" to="/login">
-                <DynamicButton color="blue" text={"LOGIN"}></DynamicButton>
+              <Link className="md:ml-2 hover:text-lime-500 text-indigo-900" to="/login">
+                Login
               </Link>
             </p>
 

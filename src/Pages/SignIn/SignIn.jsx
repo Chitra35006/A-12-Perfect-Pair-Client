@@ -13,6 +13,7 @@ import { useTheme } from "../../Provider/ThemeContext";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import { MdError } from "react-icons/md";
+import SocioLogin from "../SocioLogin/SocioLogin";
 
 const SignIn = () => {
   const{signIn} = useAuth();
@@ -132,8 +133,8 @@ const SignIn = () => {
 
             <p className="text-center text-gray-500 font-semibold">
               Don't have an account?{" "}
-              <Link className="md:ml-2" to="/signUp">
-                <DynamicButton color="blue" text={"SIGN UP"}></DynamicButton>
+              <Link className="md:ml-2 hover:text-lime-500 text-indigo-900" to="/signUp">
+                Sign Up
               </Link>
             </p>
 
@@ -143,14 +144,7 @@ const SignIn = () => {
           </form>
 
           {/* Google Button */}
-          <div className="mt-6 w-3/4 flex justify-center items-center">
-            <DynamicButton color="violet">
-              <div className="flex flex-row items-center justify-center gap-2">
-                <IoLogoGoogle className="text-white text-2xl" />
-                <span>SIGN IN WITH GOOGLE</span>
-              </div>
-            </DynamicButton>
-          </div>
+          <SocioLogin></SocioLogin>
         </div>
 
         {/* Lottie React Section */}

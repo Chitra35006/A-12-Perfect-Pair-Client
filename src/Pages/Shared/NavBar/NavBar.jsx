@@ -138,7 +138,7 @@ const NavBar = () => {
             </div>
 
             {/* Right Side */}
-            <div className="flex items-center gap-3">
+            <div className="flex justify-center items-center gap-3">
               <button
                 onClick={toggleTheme}
                 className="btn btn-ghost rounded-full"
@@ -170,7 +170,7 @@ const NavBar = () => {
                     ) : (
                       /* Show default avatar when photoURL is not available */
                       <Avatar
-                        className="bg-lime-500 w-12 h-12"
+                        className="bg-lime-300 border-2 border-lime-500 rounded-full  w-12 h-12"
                         icon={<UserOutlined />}
                       />
                     )}
@@ -180,7 +180,7 @@ const NavBar = () => {
                 <>
                   {/* Default avatar for non-logged-in users */}
                   <Avatar
-                    className="bg-lime-500 w-12 h-12 hidden lg:block"
+                    className="bg-lime-500 pt-2 w-12 h-12 hidden lg:block"
                     icon={<UserOutlined />}
                   />
                 </>
