@@ -13,8 +13,9 @@ import { FiRepeat } from "react-icons/fi";
 import { Button } from "@mui/material";
 import useAuth from "../hooks/useAuth";
 import { motion, MotionConfig } from "motion/react";
-import { Avatar } from "antd";
+
 import { UserOutlined } from "@ant-design/icons";
+import { Avatar } from '@mui/material';
 
 
 const DashBoard = () => {
@@ -53,7 +54,7 @@ const DashBoard = () => {
             ${isSidebarOpen ? 'block' : 'hidden'} md:block`}
         >
 
-              <div className="flex py-3  mx-14 justify-center items-center border-dashed border-lime-600 border-2 mt-10 mb-5 rounded-xl">
+              <div className="flex py-3  mx-14 justify-center items-center border-dashed border-teal-600 border-2 mt-10 mb-5 rounded-xl">
               {user && user.photoURL ? (
   <motion.img
     src={user.photoURL}
