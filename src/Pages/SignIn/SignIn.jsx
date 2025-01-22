@@ -58,6 +58,9 @@ const SignIn = () => {
     });
 
   };
+  const handleInputChange = () => {
+    setErrorMessage(""); // Clear error message when user starts typing
+  };
   const { theme } = useTheme();
   return (
     <div className="p-10 bg-[linear-gradient(25deg,#99f6e4_5%,_white_30%,_white_70%,#d9f99d_100%)]">
@@ -102,6 +105,7 @@ const SignIn = () => {
                 fullWidth
                 {...register("email", { required: true })}
                 required
+                onInput={handleInputChange} 
               />
               {errors.email && (
                 <span className="text-red-600">Email is required</span>
@@ -118,9 +122,10 @@ const SignIn = () => {
                 fullWidth
                 {...register("password", { required: true })}
                 required
+                onInput={handleInputChange} 
               />
               {errors.password && (
-                <span className="text-red-600">Email is required</span>
+                <span className="text-red-600">Password is required</span>
               )}
             </div>
             {/* Error Message */}

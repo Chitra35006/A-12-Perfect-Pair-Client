@@ -5,22 +5,64 @@ import { DatePicker, ConfigProvider } from "antd";
 import "antd/dist/reset.css";
 import locale from "antd/es/locale/en_US";
 import useAuth from "../../../hooks/useAuth";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 
 const AddEditBioData = () => {
     const{user} = useAuth();
+    const axiosPublic = useAxiosPublic();
+    const navigate = useNavigate();
   const {
     register,
     handleSubmit,
-    setValue,
+    setValue,reset,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = async(data) => {
     console.log(data);
+    
+      const bioDataList={
+        gender:data.gender,
+        name:data.name,
+        photo:data.photo,
+        birthDate:data.date,
+        userHeight:data.userHeight,
+        userWeight:data.userWeight,
+        userAge:data.userAge,
+        occupation:data.occupation,
+        skinColor:data.skinColor,
+        fatherName:data.fatherName,
+        motherName:data.motherName,
+        permanentDivision:data.permanentDivision,
+        presentDivision:data.presentDivision,
+        partnerAge:data.partnerAge,
+        partnerHeight:data.partnerHeight,
+        partnerWeight:data.partnerWeight,
+        email:data.email,
+        phone:data.phone
+  
+       }
+       const bioDataRes = await axiosPublic.post('/allBioData',bioDataList);
+       console.log(bioDataRes.data);
+       if(bioDataRes.data.insertedId){
+        // show success popup
+        reset();
+        Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: `${data.name} Your BioData Created Successfully.`,
+            showConfirmButton: false,
+            timer: 1500
+          });
+          navigate('/dashboard/viewBio');
+    }
+    
   };
 
- ;
+ 
 
   return (
     <div className="bg-fixed min-h-screen bg-[linear-gradient(15deg,#99f6e4_25%,_white_20%,_white_40%,#f0fdf4_100%)]">
@@ -69,6 +111,7 @@ const AddEditBioData = () => {
                 {...register("name", { required: "Name is required" })}
                 className="px-4 py-2 border rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Enter your name"
+                value={user?.displayName || ""} 
               />
               {errors.name && (
                 <p className="text-red-500 text-sm mt-1">
@@ -87,6 +130,7 @@ const AddEditBioData = () => {
                 {...register("photo", { required: "Photo URL is required" })}
                 className="px-4 py-2 border rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Enter photo URL"
+                value={user?.photoURL || ""} 
               />
               {errors.photo && (
                 <p className="text-red-500 text-sm mt-1">

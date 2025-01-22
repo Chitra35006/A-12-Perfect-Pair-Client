@@ -31,7 +31,7 @@ const DashBoard = () => {
       .catch((error) => console.log(error));
   };
 
-  const isAdmin = true;
+  const isAdmin = false;
 
   return (
     <div>
@@ -100,35 +100,35 @@ const DashBoard = () => {
             
           <li className="flex items-center space-x-2">
             <NavLink className={({ isActive }) => 
-    isActive ? 'flex items-center space-x-2 text-indigo-900 font-bold bg-lime-400 px-4 py-2 rounded-lg' : 'flex items-center space-x-2 text-green-900'
-  } to="/dashboard">
+    isActive ? 'flex items-center space-x-2 text-indigo-900 font-bold bg-lime-300 px-4 py-2 rounded-lg' : 'flex items-center space-x-2 text-green-900'
+  } to="/adminDashboard">
               <MdDashboard className="mr-2" /> Admin Dashboard
             </NavLink>
           </li>
           <li className="flex items-center space-x-2">
             <NavLink className={({ isActive }) => 
-    isActive ? 'flex items-center space-x-2 text-indigo-900 font-bold bg-lime-400 px-4 py-2 rounded-lg' : 'flex items-center space-x-2 text-green-900'
+    isActive ? 'flex items-center space-x-2 text-indigo-900 font-bold bg-lime-300 px-4 py-2 rounded-lg' : 'flex items-center space-x-2 text-green-900'
   } to="/dashboard/manageUsers">
               <FaUsers className="mr-2" /> Manage User
             </NavLink>
           </li>
           <li className="flex items-center space-x-2">
             <NavLink className={({ isActive }) => 
-    isActive ? 'flex items-center space-x-2 text-indigo-900 font-bold bg-lime-400 px-4 py-2 rounded-lg' : 'flex items-center space-x-2 text-green-900'
+    isActive ? 'flex items-center space-x-2 text-indigo-900 font-bold bg-lime-300 px-4 py-2 rounded-lg' : 'flex items-center space-x-2 text-green-900'
   } to="/dashboard/appPremium">
               <SiAdobepremierepro className="mr-2" /> Approved Premium
             </NavLink>
           </li>
           <li className="flex items-center space-x-2">
             <NavLink className={({ isActive }) => 
-    isActive ? 'flex items-center space-x-2 text-indigo-900 font-bold bg-lime-400 px-4 py-2 rounded-lg' : 'flex items-center space-x-2 text-green-900'
+    isActive ? 'flex items-center space-x-2 text-indigo-900 font-bold bg-lime-300 px-4 py-2 rounded-lg' : 'flex items-center space-x-2 text-green-900'
   } to="/dashboard/appContact">
               <RiContactsBookFill className="mr-2" /> Approved Contact Request
             </NavLink>
           </li>
           <li className="flex items-center space-x-2">
             <NavLink className={({ isActive }) => 
-    isActive ? 'flex items-center space-x-2 text-indigo-900 font-bold bg-lime-400 px-4 py-2 rounded-lg' : 'flex items-center space-x-2 text-green-900'
+    isActive ? 'flex items-center space-x-2 text-indigo-900 font-bold bg-lime-300 px-4 py-2 rounded-lg' : 'flex items-center space-x-2 text-green-900'
   } to="/dashboard/ssStory">
               <IoIosHeartHalf className="mr-2" /> Success Story
             </NavLink>
@@ -139,35 +139,35 @@ const DashBoard = () => {
             <>
               <li className="flex items-center space-x-2">
             <NavLink className={({ isActive }) => 
-    isActive ? 'flex items-center space-x-2 text-indigo-900 font-bold bg-lime-400 px-4 py-2 rounded-lg' : 'flex items-center space-x-2 text-green-900'
+    isActive ? 'flex items-center space-x-2 text-indigo-900 font-bold bg-lime-300 px-4 py-2 rounded-lg' : 'flex items-center space-x-2 text-green-900'
   } to="/dashboard/addEditBio">
               <PiReadCvLogoFill className="mr-2" /> Edit Biodata
             </NavLink>
           </li>
           <li className="flex items-center space-x-2">
             <NavLink className={({ isActive }) => 
-    isActive ? 'flex items-center space-x-2 text-indigo-900 font-bold bg-lime-400 px-4 py-2 rounded-lg' : 'flex items-center space-x-2 text-green-900'
+    isActive ? 'flex items-center space-x-2 text-indigo-900 font-bold bg-lime-300 px-4 py-2 rounded-lg' : 'flex items-center space-x-2 text-green-900'
   } to="/dashboard/viewBio">
               <FaBookReader className="mr-2" /> View Bio Data
             </NavLink>
           </li>
           <li className="flex items-center space-x-2">
             <NavLink className={({ isActive }) => 
-    isActive ? 'flex items-center space-x-2 text-indigo-900 font-bold bg-lime-400 px-4 py-2 rounded-lg' : 'flex items-center space-x-2 text-green-900'
+    isActive ? 'flex items-center space-x-2 text-indigo-900 font-bold bg-lime-300 px-4 py-2 rounded-lg' : 'flex items-center space-x-2 text-green-900'
   } to="/dashboard/myContactReq">
               <IoIosContacts className="mr-2" /> My Contact Request
             </NavLink>
           </li>
           <li className="flex items-center space-x-2">
             <NavLink className={({ isActive }) => 
-    isActive ? 'flex items-center space-x-2 text-indigo-900 font-bold bg-lime-400 px-4 py-2 rounded-lg' : 'flex items-center space-x-2 text-green-900'
+    isActive ? 'flex items-center space-x-2 text-indigo-900 font-bold bg-lime-300 px-4 py-2 rounded-lg' : 'flex items-center space-x-2 text-green-900'
   } to="/dashboard/favBioData">
               <IoHeartCircleOutline className="mr-2" /> Favorite Biodata
             </NavLink>
           </li>
           <li className="flex items-center space-x-2">
             <NavLink className={({ isActive }) => 
-    isActive ? 'flex items-center space-x-2 text-indigo-900 font-bold bg-lime-400 px-4 py-2 rounded-lg' : 'flex items-center space-x-2 text-green-900'
+    isActive ? 'flex items-center space-x-2 text-indigo-900 font-bold bg-lime-300 px-4 py-2 rounded-lg' : 'flex items-center space-x-2 text-green-900'
   } to="/dashboard/gotMarried">
               <FiRepeat  className="mr-2" /> Got Married
             </NavLink>
@@ -177,7 +177,7 @@ const DashBoard = () => {
           <div className="divider"></div>
           <li className="flex items-center space-x-2">
             <NavLink className={({ isActive }) => 
-    isActive ? 'flex items-center space-x-2 text-indigo-900 font-bold bg-lime-400 px-4 py-2 rounded-lg' : 'flex items-center space-x-2 text-green-900'
+    isActive ? 'flex items-center space-x-2 text-indigo-900 font-bold bg-lime-300 px-4 py-2 rounded-lg' : 'flex items-center space-x-2 text-green-900'
   } to="/">
               <FaHome className="mr-2" />
               Home

@@ -55,7 +55,7 @@ import GotMarriedRoute from "../Pages/DashBoard/UserDashboard/GotMarriedRoute";
   element:<DashBoard></DashBoard>,
   children:[
     {
-      path: "dashboard",
+      path: "adminDashboard",
       element:<AdminHome></AdminHome>
     },
     {

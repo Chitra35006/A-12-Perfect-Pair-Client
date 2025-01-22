@@ -11,7 +11,7 @@ import "animate.css";
 import useAuth from "../../../hooks/useAuth";
 import PrimaryButton from "../../Buttons/PrimaryButton";
 import SecondaryButton from "../../Buttons/SecondaryButton";
-import { Tooltip } from "@mui/material";
+import { Avatar, Tooltip } from "@mui/material";
 
 
 const NavBar = () => {
