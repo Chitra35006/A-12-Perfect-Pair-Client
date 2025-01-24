@@ -2,15 +2,15 @@ import React from 'react';
 import useBioData from '../../../hooks/useBioData';
 import { Avatar } from '@mui/material';
 import { Helmet } from 'react-helmet';
-
+import { Button } from "@mui/material";
 const ViewBioData = () => {
   const { userBioData } = useBioData();
 
   // Fallback for empty data
   if (!userBioData || userBioData.length === 0) {
     return (
-      <div>
-        <p>No Bio data Found. Please Add bio Data.</p>
+      <div className='flex justify-center items-center my-20'>
+        <p className='text-indigo-800 font-semibold'>No Bio data Found. Please Add bio Data.</p>
       </div>
     );
   }
@@ -37,6 +37,7 @@ const ViewBioData = () => {
     email,
     phone,
   } = firstUserBio;
+  console.log(firstUserBio);
 
   return (
     <div className="container mx-auto p-4 bg-white shadow-md rounded-lg">
@@ -67,75 +68,81 @@ const ViewBioData = () => {
 
 
       </div>
-
+      <div className="flex justify-end my-4 ">
+            <Button className="text-white font-bold hover:text-lime-300 bg-gradient-to-r from-indigo-900 via-indigo-900 to-indigo-900" type="submit" variant="contained" color="primary">
+              Make Biodata To Premium
+            </Button></div>
       {/* Details Section with Table */}
       <div className="mt-6">
-        <table className="min-w-full border-collapse border border-gray-300">
-          <thead>
-            <tr className="bg-lime-200 text-indigo-900">
-              <th className="border border-lime-500 p-2 text-left">Attribute</th>
-              <th className="border border-lime-500 p-2 text-left">Details</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td className="border border-gray-300 p-2 text-lime-600">Gender</td>
-              <td className="border border-gray-300 p-2 text-gray-500">{gender || 'N/A'}</td>
-            </tr>
-            <tr className="bg-indigo-50">
-              <td className="border border-gray-300 p-2 text-lime-600">Birth Date</td>
-              <td className="border border-gray-300 p-2 text-gray-500">{birthDate || 'N/A'}</td>
-            </tr>
-            <tr>
-              <td className="border border-gray-300 p-2 text-teal-500">Age</td>
-              <td className="border border-gray-300 p-2 text-gray-500">{userAge || 'N/A'}</td>
-            </tr>
-            <tr className="bg-indigo-50">
-              <td className="border border-gray-300 p-2 text-teal-500">Height</td>
-              <td className="border border-gray-300 p-2 text-gray-500">{userHeight || 'N/A'}</td>
-            </tr>
-            <tr>
-              <td className="border border-gray-300 p-2 text-lime-600">Weight</td>
-              <td className="border border-gray-300 p-2 text-gray-500">{userWeight || 'N/A'}</td>
-            </tr>
-            <tr className="bg-indigo-50">
-              <td className="border border-gray-300 p-2 text-lime-600">Skin Color</td>
-              <td className="border border-gray-300 p-2 text-gray-500">{skinColor || 'N/A'}</td>
-            </tr>
-            <tr>
-              <td className="border border-gray-300 text-teal-500 p-2">Occupation</td>
-              <td className="border border-gray-300 p-2 text-gray-500">{occupation || 'N/A'}</td>
-            </tr>
-            <tr className="bg-indigo-50">
-              <td className="border border-gray-300 text-teal-500 p-2">Permanent Division</td>
-              <td className="border border-gray-300 p-2 text-gray-500">{permanentDivision || 'N/A'}</td>
-            </tr>
-            <tr>
-              <td className="border border-gray-300 text-lime-600 p-2">Present Division</td>
-              <td className="border border-gray-300 p-2 text-gray-500">{presentDivision || 'N/A'}</td>
-            </tr>
-            <tr className="bg-indigo-50">
-              <td className="border border-gray-300 text-lime-600 p-2">Partner Age</td>
-              <td className="border border-gray-300 p-2 text-gray-500">{partnerAge || 'N/A'}</td>
-            </tr>
-            <tr>
-              <td className="border border-gray-300 p-2 text-teal-500">Partner Height</td>
-              <td className="border border-gray-300 p-2 text-gray-500">{partnerHeight || 'N/A'}</td>
-            </tr>
-            <tr className="bg-indigo-50">
-              <td className="border border-gray-300 text-teal-500 p-2">Partner Weight</td>
-              <td className="border border-gray-300 p-2 text-gray-500">{partnerWeight || 'N/A'}</td>
-            </tr>
-            <tr>
-              <td className="border border-gray-300 text-lime-600 p-2">Email</td>
-              <td className="border border-gray-300 p-2 text-gray-500">{email || 'N/A'}</td>
-            </tr>
-            <tr className="bg-indigo-50">
-              <td className="border border-gray-300 text-lime-600 p-2">Phone</td>
-              <td className="border border-gray-300 p-2 text-gray-500">{phone || 'N/A'}</td>
-            </tr>
-          </tbody>
-        </table>
+      <div className="overflow-x-auto">
+  <table className="min-w-full border-collapse border border-gray-300 rounded-lg shadow-md">
+    <thead>
+      <tr className="bg-lime-300 text-indigo-900">
+        <th className="border border-lime-500 p-3 text-left text-lg font-semibold">Attribute</th>
+        <th className="border border-lime-500 p-3 text-left text-lg font-semibold">Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr className="hover:bg-lime-200">
+        <td className="border border-gray-300 p-3 text-lime-600 font-medium">Gender</td>
+        <td className="border border-gray-300 p-3 text-gray-600">{gender || 'N/A'}</td>
+      </tr>
+      <tr className="bg-indigo-50 hover:bg-lime-200">
+        <td className="border border-gray-300 p-3 text-lime-600 font-medium">Birth Date</td>
+        <td className="border border-gray-300 p-3 text-gray-600">{birthDate || 'N/A'}</td>
+      </tr>
+      <tr className="hover:bg-lime-200">
+        <td className="border border-gray-300 p-3 text-teal-500 font-medium">Age</td>
+        <td className="border border-gray-300 p-3 text-gray-600">{userAge || 'N/A'}</td>
+      </tr>
+      <tr className="bg-indigo-50 hover:bg-lime-200">
+        <td className="border border-gray-300 p-3 text-teal-500 font-medium">Height</td>
+        <td className="border border-gray-300 p-3 text-gray-600">{userHeight || 'N/A'}</td>
+      </tr>
+      <tr className="hover:bg-lime-200">
+        <td className="border border-gray-300 p-3 text-lime-600 font-medium">Weight</td>
+        <td className="border border-gray-300 p-3 text-gray-600">{userWeight || 'N/A'}</td>
+      </tr>
+      <tr className="bg-indigo-50 hover:bg-lime-200">
+        <td className="border border-gray-300 p-3 text-lime-600 font-medium">Skin Color</td>
+        <td className="border border-gray-300 p-3 text-gray-600">{skinColor || 'N/A'}</td>
+      </tr>
+      <tr className="hover:bg-lime-200">
+        <td className="border border-gray-300 p-3 text-teal-500 font-medium">Occupation</td>
+        <td className="border border-gray-300 p-3 text-gray-600">{occupation || 'N/A'}</td>
+      </tr>
+      <tr className="bg-indigo-50 hover:bg-lime-200">
+        <td className="border border-gray-300 p-3 text-teal-500 font-medium">Permanent Division</td>
+        <td className="border border-gray-300 p-3 text-gray-600">{permanentDivision || 'N/A'}</td>
+      </tr>
+      <tr className="hover:bg-lime-200">
+        <td className="border border-gray-300 p-3 text-lime-600 font-medium">Present Division</td>
+        <td className="border border-gray-300 p-3 text-gray-600">{presentDivision || 'N/A'}</td>
+      </tr>
+      <tr className="bg-indigo-50 hover:bg-lime-200">
+        <td className="border border-gray-300 p-3 text-lime-600 font-medium">Partner Age</td>
+        <td className="border border-gray-300 p-3 text-gray-600">{partnerAge || 'N/A'}</td>
+      </tr>
+      <tr className="hover:bg-lime-200">
+        <td className="border border-gray-300 p-3 text-teal-500 font-medium">Partner Height</td>
+        <td className="border border-gray-300 p-3 text-gray-600">{partnerHeight || 'N/A'}</td>
+      </tr>
+      <tr className="bg-indigo-50 hover:bg-lime-200">
+        <td className="border border-gray-300 p-3 text-teal-500 font-medium">Partner Weight</td>
+        <td className="border border-gray-300 p-3 text-gray-600">{partnerWeight || 'N/A'}</td>
+      </tr>
+      <tr className="hover:bg-lime-200">
+        <td className="border border-gray-300 p-3 text-lime-600 font-medium">Email</td>
+        <td className="border border-gray-300 p-3 text-gray-600">{email || 'N/A'}</td>
+      </tr>
+      <tr className="bg-indigo-50 hover:bg-lime-200">
+        <td className="border border-gray-300 p-3 text-lime-600 font-medium">Phone</td>
+        <td className="border border-gray-300 p-3 text-gray-600">{phone || 'N/A'}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
       </div>
     </div>
   );

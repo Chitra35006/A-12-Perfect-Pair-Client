@@ -10,6 +10,8 @@ import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
 
+
+
 const AddEditBioData = () => {
     const{user} = useAuth();
     const axiosPublic = useAxiosPublic();
@@ -23,6 +25,8 @@ const AddEditBioData = () => {
 
   const onSubmit = async(data) => {
     console.log(data);
+
+    
     
       const bioDataList={
         gender:data.gender,
@@ -526,7 +530,7 @@ const AddEditBioData = () => {
           {/* Submit Button */}
           <div className="flex justify-end">
             <Button className="text white  hover:text-lime-300 bg-gradient-to-r from-indigo-900 via-indigo-900 to-indigo-900" type="submit" variant="contained" color="primary">
-              Submit
+              Save And Publish
             </Button>
           </div>
         </form>
