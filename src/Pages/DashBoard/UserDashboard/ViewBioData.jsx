@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useBioData from '../../../hooks/useBioData';
 import { Avatar } from '@mui/material';
 import { Helmet } from 'react-helmet';
 import { Button } from "@mui/material";
+import Swal from 'sweetalert2';
+import useAxiosSecure from '../../../hooks/useAxiosSecure';
 const ViewBioData = () => {
   const { userBioData } = useBioData();
+  const axiosSecure = useAxiosSecure();
+
+  const [requestStatus, setRequestStatus] = useState(""); // To track request status
+  const [isProcessing, setIsProcessing] = useState(false);
 
   // Fallback for empty data
   if (!userBioData || userBioData.length === 0) {
@@ -37,7 +43,66 @@ const ViewBioData = () => {
     email,
     phone,
   } = firstUserBio;
-  console.log(firstUserBio);
+  // console.log(firstUserBio);
+
+  
+
+  const handleToPremium = async (userEmail, userName) => {
+    setIsProcessing(true);
+    setRequestStatus("isPending");
+  
+    if (userEmail && firstUserBio.role !== "premium") {
+      // Show confirmation modal
+      const result = await Swal.fire({
+        title: `Are you sure ${userName}  to make you  a PREMIUM user?`, // Display user's name in the confirmation
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonText: "Yes, make me Premium!",
+        cancelButtonText: "No, cancel",
+      });
+  
+      // If the user clicks "Yes", proceed with the request
+      if (result.isConfirmed) {
+        const data = {
+          name: userName,
+          email: userEmail,
+          status: "isPending",
+        };
+  
+        console.log("Data to send:", data);
+  
+        axiosSecure.post("/approvePremium", data)
+          .then((res) => {
+            console.log("Response from server:", res.data);
+            if (res.data.success && res.data.insertedId) {
+              Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: `Request to make ${userName} a premium user is now pending.`,
+                showConfirmButton: false,
+                timer: 1500,
+              });
+              // Refetch data to update UI
+            }
+          })
+          .catch((err) => {
+            console.error("Error submitting request:", err);
+            Swal.fire({
+              icon: "error",
+              title: "Failed to submit premium request!",
+              text: err.response?.data?.message || err.message,
+            });
+          });
+      } else {
+        // If the user clicks "No, cancel", you can handle cancellation here if needed
+        setIsProcessing(false);
+        setRequestStatus(""); // Reset the request status if canceled
+        console.log("User canceled the request to make premium.");
+      }
+    }
+  };
+  
+
    
 
   return (
@@ -72,9 +137,29 @@ const ViewBioData = () => {
 
       </div>
       <div className="flex justify-end my-4 ">
-            <Button className="text-white font-bold hover:text-lime-300 bg-gradient-to-r from-indigo-900 via-indigo-900 to-indigo-900" type="submit" variant="contained" color="primary">
-              Make Biodata To Premium
-            </Button></div>
+      <Button
+        onClick={() => handleToPremium(email, name)} // Pass the user email and name here
+        className={`text-white font-bold ${
+          firstUserBio.role === "premium" || requestStatus === "isPending"
+           
+            ? "bg-gray-400 cursor-not-allowed"
+            : "bg-gradient-to-r from-indigo-900 via-indigo-900 to-indigo-900"
+        }`}
+        type="submit"
+        disabled={firstUserBio.role === "premium" || requestStatus === "isPending" || isProcessing}
+        
+        variant="contained"
+        color="primary"
+      >
+        {isProcessing
+          ? "Request for Premium is processing"
+          : firstUserBio.role === "premium"
+          ? "Premium User"
+          : "Make Biodata To Premium"}
+          
+      </Button>
+
+</div>
       {/* Details Section with Table */}
       <div className="mt-6">
       <div className="overflow-x-auto">
