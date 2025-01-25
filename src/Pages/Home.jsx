@@ -3,6 +3,7 @@ import Banner from "./Banner/Banner";
 import WorkingProcess from "./HowItWorks/WorkingProcess";
 import Featured from "./Featured/Featured";
 import SuccessStory from "./SuccesStory/SuccessStory";
+import SuccessCounter from "./SuccessCounter/SuccessCounter";
 
 
 const Home = () => {
@@ -12,6 +13,7 @@ const Home = () => {
            <Banner></Banner>
            <WorkingProcess></WorkingProcess>
            <Featured></Featured>
+           <SuccessCounter></SuccessCounter>
            <SuccessStory></SuccessStory>
         </div>
     );

@@ -1,0 +1,18 @@
+.custom-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+  }
+  
+  .custom-card:hover {
+    transform: scale(1.05); /* Slight zoom effect */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  }
+  
+  .custom-card:hover h3,
+  .custom-card:hover h4 {
+    color: #99ff33; /* Change text color on hover (for better visibility) */
+  }
+  
+  .custom-card:hover .ant-card-body {
+    background: linear-gradient(to right, #ff9a9e, #ff80aa); /* Hover gradient */
+  }
+  
