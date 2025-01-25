@@ -32,7 +32,7 @@ const DashBoard = () => {
       .catch((error) => console.log(error));
   };
 
-  const isAdmin = false;
+  const isAdmin = true;
 
   return (
     <div>
