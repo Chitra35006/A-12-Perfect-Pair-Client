@@ -24,7 +24,7 @@ const NavBar = () => {
 
   const { theme, toggleTheme } = useTheme();
   const { user, logOut } = useAuth();
-  console.log(user);
+  // console.log(user);
   const handleLogout = () => {
     logOut()
       .then(() => {})

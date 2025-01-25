@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet";
 import Banner from "./Banner/Banner";
 import WorkingProcess from "./HowItWorks/WorkingProcess";
 import Featured from "./Featured/Featured";
+import SuccessStory from "./SuccesStory/SuccessStory";
 
 
 const Home = () => {
@@ -11,6 +12,7 @@ const Home = () => {
            <Banner></Banner>
            <WorkingProcess></WorkingProcess>
            <Featured></Featured>
+           <SuccessStory></SuccessStory>
         </div>
     );
 };
