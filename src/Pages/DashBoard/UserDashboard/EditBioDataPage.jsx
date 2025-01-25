@@ -6,8 +6,10 @@ import useAuth from '../../../hooks/useAuth';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Helmet } from 'react-helmet';
-import Swal from 'sweetalert2';
+
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+
 
 
 const EditBioDataPage = () => {
@@ -74,21 +76,15 @@ const EditBioDataPage = () => {
     }
   }, [firstUserBio]);
   // console.log(birthDate);
-    
+  // console.log(birthDate);
+  // console.log(typeof(birthDate));
     const handleUpdateData =async (e)=>{
       e.preventDefault();
-      let formattedDate = "";
-      if (birthDate instanceof Date && !isNaN(birthDate)) {
-        formattedDate = birthDate.toISOString().split("T")[0];
-      } else {
-        console.error("Invalid birthDate:", birthDate);
-        return; // Exit if birthDate is invalid
-      }
       const bioDataList={
         name,
         gender,
         photo,
-        birthDate:formattedDate,
+        birthDate,
         userHeight,
         userWeight,
         userAge,
@@ -98,23 +94,41 @@ const EditBioDataPage = () => {
         email,
         phone
       }
-      console.log(bioDataList);
-      const bioDataRes =  await axiosSecure.patch(`/updateBio/${firstUserBio._id}`,bioDataList);
-      if(bioDataRes.data.modifiedCount>0){
+     
+      
+      try {
+        const bioDataRes = await axiosSecure.patch(`/updateBio/${firstUserBio._id}`, bioDataList);
+      
+        if (bioDataRes.data.modifiedCount > 0) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: `${bioDataList.name} Biodata is updated.`,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          navigate('/dashboard/viewBio');
+        } else {
+          Swal.fire({
+            icon: "warning",
+            title: "No changes were made.",
+            text: "Try modifying the data before updating.",
+          });
+        }
+      } catch (error) {
+        console.error('Error updating biodata:', error);
         Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: `${bioDataList.name} Biodata is updated.`,
-          showConfirmButton: false,
-          timer: 1500
+          icon: "error",
+          title: "Update Failed",
+          text: "Something went wrong. Please try again.",
         });
-        navigate('/dashboard/viewBio');
       }
+      
     }
 
   return (
    <div>
-    <Helmet><title>Perfect Pair || Add Bio Data</title></Helmet>
+    <Helmet><title>Perfect Pair || Edit Bio Data</title></Helmet>
      <div className="bg-fixed min-h-screen bg-[linear-gradient(15deg,#99f6e4_25%,_white_20%,_white_40%,#f0fdf4_100%)]">
     <div className="bg-[linear-gradient(25deg,#99f6e4_5%,_white_40%,_white_40%,#bef264_100%)] mx-4 mt-8 p-8 shadow-xl rounded-lg">
       
@@ -190,12 +204,20 @@ const EditBioDataPage = () => {
           Your Birth Date
         </label>
         <DatePicker
-          selected={birthDate}
-          onChange={(birthDate) => setBirthDate(birthDate)}
-          dateFormat="yyyy-MM-dd"
-          className="w-full px-4 py-2 border border-gray-300 rounded-md"
-          placeholderText="Choose a date"
-        />
+  selected={birthDate}
+  onChange={(date) => {
+    if (date) {
+      const timestamp = date.getTime(); // Convert selected date to timestamp
+      setBirthDate(timestamp); // Save as timestamp
+    } else {
+      setBirthDate(null); // Handle invalid or empty date
+    }
+  }}
+  dateFormat="yyyy-MM-dd"
+  className="w-full px-4 py-2 border border-gray-300 rounded-md"
+  placeholderText="Choose a date"
+/>
+
       </div>
                 {/* User Height[5] */}
                 <div className="form-group">

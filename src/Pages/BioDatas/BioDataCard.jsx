@@ -3,7 +3,7 @@ import { Card, Row, Col, Button } from "antd";
 import { UserOutlined, SmileOutlined, SolutionOutlined, EnvironmentOutlined, ArrowRightOutlined } from "@ant-design/icons";
 import { Link } from 'react-router-dom';
 const BioDataCard = ({biodata,idx}) => {
-    const{name,id,gender,permanentDivision,userAge,occupation,photo} = biodata;
+    const{name,id,gender,_id,permanentDivision,userAge,occupation,photo} = biodata;
       // Define a repeating set of gradient colors
       const gradientColors = [
         "linear-gradient(to bottom, #b2ebf2, #e0f7fa)", // Darker Cyan to Light Cyan
@@ -20,10 +20,7 @@ const BioDataCard = ({biodata,idx}) => {
         "#ec407a", // Pink
         "#ab47bc", // Purple
         "#7e57c2", // Indigo
-        "#ffab91", // Green
-        "#ffeb3b", 
-        "#7e57c2",
-        "#ff8a65", 
+        "#ffab91", // Green 
       ];
     return (
         <Card
@@ -72,28 +69,34 @@ const BioDataCard = ({biodata,idx}) => {
           </div>
         }
       >
-        <h3 style={{ textAlign: "left", fontWeight: "bold", color: "#333" }}>{name}</h3>
-        <Row gutter={[16, 8]} justify="center">
-          <Col span={12}>
-            <p style={{ margin: 0 }}>
-              <UserOutlined style={{ color: "#1890ff" }} /> <strong>Gender:</strong> {gender}
-            </p>
-            <p style={{ margin: 0 }}>
-              <SmileOutlined style={{ color: "#52c41a" }} /> <strong>Age:</strong> {userAge}
-            </p>
-          </Col>
-          <Col span={12}>
+        <h3 style={{ textAlign: "left", fontWeight: "bold", color: "#00796b " }}>{name}</h3>
+        <Row gutter={[16, 8]} justify="center mb-4">
+        <Col span={12}>
+    <p style={{ margin: 0 }}>
+      <UserOutlined style={{ color: "#1890ff" }} /> <strong>Gender:</strong> {gender}
+    </p>
+  </Col>
+  <Col span={12}>
+    <p style={{ margin: 0 }}>
+      <SmileOutlined style={{ color: "#1e8449" }} /> <strong>Age:</strong> {userAge}
+    </p>
+  </Col>
+          <Col span={24}>
             <p style={{ margin: 0 }}>
               <SolutionOutlined style={{ color: "#fa8c16" }} /> <strong>Occupation:</strong> {occupation}
             </p>
-            <p style={{ margin: 0 }}>
+            
+          </Col>
+          <Col span={24}>
+          <p style={{ margin: 0 }}>
               <EnvironmentOutlined style={{ color: "#ff4d4f" }} /> <strong>Permanent Division:</strong>{" "}
               {permanentDivision}
             </p>
+            
           </Col>
         </Row>
-        <div style={{ textAlign: "left", marginTop: "auto" }}>
-          <Link>
+        <div style={{ textAlign: "right", marginTop: "auto" }}>
+          <Link to={`/allBiodataDetails/${_id}`}>
             <Button
               type="primary"
               icon={<ArrowRightOutlined />}
@@ -112,18 +115,6 @@ const BioDataCard = ({biodata,idx}) => {
                 e.currentTarget.style.borderColor = "#2e7d32";
               }}
               onMouseOut={(e) => {
-                e.currentTarget.style.backgroundImage = "none";
-                e.currentTarget.style.backgroundColor = "#388e3c";
-                e.currentTarget.style.color = "#ffffff";
-                e.currentTarget.style.borderColor = "#66bb6a";
-              }}
-              onFocus={(e) => {
-                e.currentTarget.style.backgroundImage =
-                  "linear-gradient(to right, #00796b, #00897b, #00897b)";
-                e.currentTarget.style.color = "#ffffff";
-                e.currentTarget.style.borderColor = "#2e7d32";
-              }}
-              onBlur={(e) => {
                 e.currentTarget.style.backgroundImage = "none";
                 e.currentTarget.style.backgroundColor = "#388e3c";
                 e.currentTarget.style.color = "#ffffff";

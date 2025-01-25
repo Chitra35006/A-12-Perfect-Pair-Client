@@ -1,37 +1,36 @@
 import { useEffect, useState } from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
-// Import useAuth
 import EditBioDataPage from "./EditBioDataPage";
 import AddEditBioData from "./AddEditBioData";
 import useAuth from "../../../hooks/useAuth";
 
 const UserBioDataPage = () => {
   const { user } = useAuth(); // Get user from auth context
-  const userEmail = user?.email; // Get user email
+  const userEmail = user?.email; // Safely access email
   const [userBioData, setUserBioData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const axiosSecure = useAxiosSecure();
 
   useEffect(() => {
     if (!userEmail) {
-      // If email is not available, return early
-      console.error('User email is not available');
+      // console.error("User email is not available");
+      setIsLoading(false); // Avoid infinite loading state
       return;
     }
 
     const fetchUserBioData = async () => {
       try {
         const response = await axiosSecure.get(`/userBioDataId`, {
-          params: { email: userEmail }, // Pass email as a query parameter
+          params: { email: userEmail },
         });
 
         if (response.data) {
-          setUserBioData(response.data); // Store the returned bio data if exists
+          setUserBioData(response.data);
         } else {
-          setUserBioData(null); // No data found (user hasn't filled the form)
+          setUserBioData(null);
         }
       } catch (error) {
-        console.error('Error fetching user bio data:', error);
+        console.error("Error fetching user bio data:", error);
         setUserBioData(null);
       } finally {
         setIsLoading(false);
@@ -39,7 +38,7 @@ const UserBioDataPage = () => {
     };
 
     fetchUserBioData();
-  }, [userEmail]); // Fetch when userEmail changes
+  }, [userEmail, axiosSecure]); // Include axiosSecure in dependency array
 
   if (isLoading) {
     return <div>Loading...</div>;

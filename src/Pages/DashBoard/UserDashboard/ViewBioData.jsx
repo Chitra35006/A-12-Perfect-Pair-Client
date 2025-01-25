@@ -38,12 +38,15 @@ const ViewBioData = () => {
     phone,
   } = firstUserBio;
   console.log(firstUserBio);
+   
 
   return (
     <div className="container mx-auto p-4 bg-white shadow-md rounded-lg">
-        <Helmet><title>Perfect Pair | View Bio Data</title></Helmet>
+        <Helmet>
+    <title>Perfect Pair | {name ? `${name}'s Bio` : "View Bio Data"}</title>
+</Helmet>
       {/* Top Section */}
-      <div className="flex justify-between md:px-20 px-10 bg-indigo-100 py-4 rounded-bl-[80px] rounded-tr-[40px] items-center border-b-4 border-r-4 border-x-4 border-teal-500 pb-4">
+      <div className="flex justify-between md:px-20 px-10 bg-indigo-100 py-4 rounded-bl-[80px] rounded-tr-[40px] items-center border-b-4 border-r-4 border-x-4 border-teal-500 pb-4 shadow-xl">
         {/* Left Section */}
         <div className="space-y-2">
           <h1 className="md:text-2xl font-bold text-gray-800">{name || 'Unknown'}</h1>
@@ -88,9 +91,13 @@ const ViewBioData = () => {
         <td className="border border-gray-300 p-3 text-gray-600">{gender || 'N/A'}</td>
       </tr>
       <tr className="bg-indigo-50 hover:bg-lime-200">
-        <td className="border border-gray-300 p-3 text-lime-600 font-medium">Birth Date</td>
-        <td className="border border-gray-300 p-3 text-gray-600">{birthDate || 'N/A'}</td>
-      </tr>
+  <td className="border border-gray-300 p-3 text-lime-600 font-medium">Birth Date</td>
+  <td className="border border-gray-300 p-3 text-gray-600">
+    {birthDate && !isNaN(new Date(birthDate).getTime())
+      ? new Date(birthDate).toISOString().split('T')[0]
+      : 'N/A'}
+  </td>
+</tr>
       <tr className="hover:bg-lime-200">
         <td className="border border-gray-300 p-3 text-teal-500 font-medium">Age</td>
         <td className="border border-gray-300 p-3 text-gray-600">{userAge || 'N/A'}</td>

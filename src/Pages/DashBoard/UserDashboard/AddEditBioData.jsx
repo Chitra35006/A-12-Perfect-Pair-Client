@@ -8,6 +8,7 @@ import useAuth from "../../../hooks/useAuth";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 
 
@@ -69,7 +70,10 @@ const AddEditBioData = () => {
  
 
   return (
-    <div className="bg-fixed min-h-screen bg-[linear-gradient(15deg,#99f6e4_25%,_white_20%,_white_40%,#f0fdf4_100%)]">
+    <div>
+      
+    <Helmet><title>Perfect Pair || Add Bio Data</title></Helmet>
+      <div className="bg-fixed min-h-screen bg-[linear-gradient(15deg,#99f6e4_25%,_white_20%,_white_40%,#f0fdf4_100%)]">
       <div className="bg-[linear-gradient(25deg,#99f6e4_5%,_white_40%,_white_40%,#bef264_100%)] mx-4 mt-8 p-8 shadow-xl rounded-lg">
         
          
@@ -538,6 +542,7 @@ const AddEditBioData = () => {
       </div>
 
       
+    </div>
     </div>
   );
 };

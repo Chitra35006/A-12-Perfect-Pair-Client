@@ -20,6 +20,8 @@ import MyContactRequest from "../Pages/DashBoard/UserDashboard/MyContactRequest"
 import FavouriteBioData from "../Pages/DashBoard/UserDashboard/FavouriteBioData";
 import GotMarriedRoute from "../Pages/DashBoard/UserDashboard/GotMarriedRoute";
 import UserBioDataPage from "../Pages/DashBoard/UserDashboard/UserBioDataPage";
+import DetailsBioData from "../Pages/BioDatas/DetailsBioData";
+import PrivateRoute from "./PrivateRoute";
   export const router = createBrowserRouter([
     {
       path: "/",
@@ -32,6 +34,12 @@ import UserBioDataPage from "../Pages/DashBoard/UserDashboard/UserBioDataPage";
         {
             path:"biodata",
             element:<BioData></BioData>
+        },
+        {
+          path:'/allBiodataDetails/:id',
+          element:<PrivateRoute><DetailsBioData></DetailsBioData></PrivateRoute>,
+          loader:({params})=>fetch(`http://localhost:5000/allBioData/${params.id}`)
+
         },
         {
             path:"aboutUs",

@@ -12,6 +12,7 @@ import logo from "../../assets/logo.png";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
+import {ArrowRightOutlined } from "@ant-design/icons";
 const SignUp = () => {
   const{createUser,updateUserProfile} = useAuth();
   const {
@@ -102,11 +103,23 @@ const SignUp = () => {
         {/* Form Section */}
         <div className="md:col-span-6 col-span-12 order-2 md:order-1 border-lime-400 border-dashed border-l-4 flex  items-center justify-center p-6 relative">
           {/* Form */}
-          <div className="flex  absolute top-4 md:top-5  justify-center items-center">
-            <h2 className="text-bold md:text-2xl text-lime-600 p-1 border-y-2 border-blue-300 px-2">
-              Register Now
-            </h2>
-          </div>
+          <div className="flex absolute top-4 md:top-5 justify-between items-center w-full px-4">
+ 
+
+  {/* Arrow Link Section */}
+  <a
+    href="/"
+    className="flex items-center text-lime-500 hover:text-blue-500 transition-colors duration-300"
+  >
+    <ArrowRightOutlined className="text-xl md:text-2xl" />
+    <span className="ml-1 text-sm md:text-base font-medium">Go Home</span>
+  </a>
+   {/* Heading Section */}
+   <h2 className="font-bold md:text-2xl text-lime-600 p-1 border-y-2 border-blue-300 px-2">
+    Register Now
+  </h2>
+</div>
+
           <form
             onSubmit={handleSubmit(onSubmit)}
             className="w-full max-w-md md:my-0 my-8"

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
-import { Row, Col, Slider, Select } from "antd";
+import { Row, Col, Slider, Select, Pagination } from "antd";
 import useAllBioData from "../../hooks/useAllBioData";
 import Section_Heading1 from "../Heading/Section_Heading1";
 import BioDataCard from "./BioDataCard";
@@ -15,6 +15,8 @@ const BioData = () => {
     permanentDivision: "",
   });
   const [filteredData, setFilteredData] = useState(biodatas);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize, setPageSize] = useState(9); // Number of items per page
 
   // Function to handle filter changes
   const handleFilterChange = (key, value) => {
@@ -36,18 +38,32 @@ const BioData = () => {
         !filters.permanentDivision ||
         biodata.permanentDivision === filters.permanentDivision;
 
-      // If no division is selected, filter only by age and gender
       return matchesAge && matchesGender && (!filters.permanentDivision || matchesDivision);
     });
     setFilteredData(filtered);
+    setCurrentPage(1); // Reset to the first page when filters are applied
   }, [biodatas, filters]);
+
+  // Calculate the paginated data
+  const paginatedData = filteredData.slice(
+    (currentPage - 1) * pageSize,
+    currentPage * pageSize
+  );
+
+  const handlePageChange = (page, pageSize) => {
+    setCurrentPage(page);
+    setPageSize(pageSize);
+  };
+
+  // Calculate the range of items being displayed
+  const startItem = (currentPage - 1) * pageSize + 1;
+  const endItem = Math.min(currentPage * pageSize, filteredData.length);
 
   return (
     <div className="w-full mx-auto bg-gray-50 p-4 my-10">
       <Helmet>
         <title>Perfect Pair | Biodata</title>
       </Helmet>
-      <h2>Bio Data Page</h2>
       <Section_Heading1 custom_class="mb-10" heading={"All Users Biodata"}></Section_Heading1>
       <Row gutter={[16, 16]}>
         {/* Filter Section on the Left (Fixed) */}
@@ -59,8 +75,8 @@ const BioData = () => {
               border: "1px solid #d3d3d3",
               boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
               backgroundColor: "#f9f9f9",
-              height: "calc(100vh - 100px)", // Take full height minus some space for header
-              overflowY: "auto", // Allow scrolling within the filter section if content overflows
+              height: "calc(100vh - 100px)",
+              overflowY: "auto",
             }}
           >
             <h4>Filters</h4>
@@ -91,13 +107,16 @@ const BioData = () => {
               <Select
                 placeholder="Select Division"
                 style={{ width: "100%" }}
-                onChange={(value) => handleFilterChange("permanentDivision", value || "")} // Reset to empty string when cleared
+                onChange={(value) => handleFilterChange("permanentDivision", value || "")}
                 allowClear
               >
-                <Option value="Dhaka">Dhaka</Option>
-                <Option value="Chittagong">Chittagong</Option>
-                <Option value="Rangpur">Rangpur</Option>
-                <Option value="Barishal">Barishal</Option>
+                <option value="Dhaka">Dhaka</option>
+                <option value="Chittagong">Chittagong</option>
+                <option value="Rangpur">Rangpur</option>
+                <option value="Barishal">Barishal</option>
+                <option value="Khulna">Khulna</option>
+                <option value="Mymensingh">Mymensingh</option>
+                <option value="Sylhet">Sylhet</option>
               </Select>
             </div>
           </div>
@@ -106,9 +125,22 @@ const BioData = () => {
         {/* Biodata Cards on the Right (Scrollable) */}
         <Col xs={24} md={18} style={{ height: "calc(100vh - 100px)", overflowY: "auto" }}>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {filteredData.map((biodata, index) => (
+            {paginatedData.map((biodata, index) => (
               <BioDataCard key={biodata._id} biodata={biodata} idx={index} />
             ))}
+          </div>
+          {/* Pagination and Display Count */}
+          <div className="flex justify-between items-center mt-6">
+            <div>
+              Showing {startItem}–{endItem} of {filteredData.length}
+            </div>
+            <Pagination
+              current={currentPage}
+              pageSize={pageSize}
+              total={filteredData.length}
+              showSizeChanger
+              onChange={handlePageChange}
+            />
           </div>
         </Col>
       </Row>
