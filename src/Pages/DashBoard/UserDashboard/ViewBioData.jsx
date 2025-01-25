@@ -86,64 +86,64 @@ const ViewBioData = () => {
       </tr>
     </thead>
     <tbody>
-      <tr className="hover:bg-lime-200">
-        <td className="border border-gray-300 p-3 text-lime-600 font-medium">Gender</td>
+      <tr className="hover:bg-lime-200 hover:font-bold">
+        <td className="border border-gray-300 p-3 text-lime-600 font-medium hover:font-bold">Gender</td>
         <td className="border border-gray-300 p-3 text-gray-600">{gender || 'N/A'}</td>
       </tr>
-      <tr className="bg-indigo-50 hover:bg-lime-200">
-  <td className="border border-gray-300 p-3 text-lime-600 font-medium">Birth Date</td>
+      <tr className="bg-indigo-50 hover:bg-lime-200 hover:font-bold">
+  <td className="border border-gray-300 p-3 text-lime-600 font-medium hover:font-bold">Birth Date</td>
   <td className="border border-gray-300 p-3 text-gray-600">
     {birthDate && !isNaN(new Date(birthDate).getTime())
       ? new Date(birthDate).toISOString().split('T')[0]
       : 'N/A'}
   </td>
 </tr>
-      <tr className="hover:bg-lime-200">
-        <td className="border border-gray-300 p-3 text-teal-500 font-medium">Age</td>
+      <tr className="hover:bg-lime-200 hover:font-bold">
+        <td className="border border-gray-300 p-3 text-teal-500 font-medium hover:font-bold">Age</td>
         <td className="border border-gray-300 p-3 text-gray-600">{userAge || 'N/A'}</td>
       </tr>
-      <tr className="bg-indigo-50 hover:bg-lime-200">
-        <td className="border border-gray-300 p-3 text-teal-500 font-medium">Height</td>
+      <tr className="bg-indigo-50 hover:bg-lime-200 hover:font-bold">
+        <td className="border border-gray-300 p-3 text-teal-500 font-medium hover:font-bold">Height</td>
         <td className="border border-gray-300 p-3 text-gray-600">{userHeight || 'N/A'}</td>
       </tr>
-      <tr className="hover:bg-lime-200">
-        <td className="border border-gray-300 p-3 text-lime-600 font-medium">Weight</td>
+      <tr className="hover:bg-lime-200 hover:font-bold">
+        <td className="border border-gray-300 p-3 text-lime-600 font-medium hover:font-bold">Weight</td>
         <td className="border border-gray-300 p-3 text-gray-600">{userWeight || 'N/A'}</td>
       </tr>
-      <tr className="bg-indigo-50 hover:bg-lime-200">
-        <td className="border border-gray-300 p-3 text-lime-600 font-medium">Skin Color</td>
+      <tr className="bg-indigo-50 hover:bg-lime-200 hover:font-bold">
+        <td className="border border-gray-300 p-3 text-lime-600 font-medium hover:font-bold">Skin Color</td>
         <td className="border border-gray-300 p-3 text-gray-600">{skinColor || 'N/A'}</td>
       </tr>
-      <tr className="hover:bg-lime-200">
-        <td className="border border-gray-300 p-3 text-teal-500 font-medium">Occupation</td>
+      <tr className="hover:bg-lime-200 hover:font-bold">
+        <td className="border border-gray-300 p-3 text-teal-500 font-medium hover:font-bold">Occupation</td>
         <td className="border border-gray-300 p-3 text-gray-600">{occupation || 'N/A'}</td>
       </tr>
-      <tr className="bg-indigo-50 hover:bg-lime-200">
-        <td className="border border-gray-300 p-3 text-teal-500 font-medium">Permanent Division</td>
+      <tr className="bg-indigo-50 hover:bg-lime-200 hover:font-bold">
+        <td className="border border-gray-300 p-3 text-teal-500 font-medium hover:font-bold">Permanent Division</td>
         <td className="border border-gray-300 p-3 text-gray-600">{permanentDivision || 'N/A'}</td>
       </tr>
-      <tr className="hover:bg-lime-200">
-        <td className="border border-gray-300 p-3 text-lime-600 font-medium">Present Division</td>
+      <tr className="hover:bg-lime-200 hover:font-bold">
+        <td className="border border-gray-300 p-3 text-lime-600 font-medium hover:font-bold">Present Division</td>
         <td className="border border-gray-300 p-3 text-gray-600">{presentDivision || 'N/A'}</td>
       </tr>
-      <tr className="bg-indigo-50 hover:bg-lime-200">
-        <td className="border border-gray-300 p-3 text-lime-600 font-medium">Partner Age</td>
+      <tr className="bg-indigo-50 hover:bg-lime-200 hover:font-bold">
+        <td className="border border-gray-300 p-3 text-lime-600 font-medium hover:font-bold">Partner Age</td>
         <td className="border border-gray-300 p-3 text-gray-600">{partnerAge || 'N/A'}</td>
       </tr>
-      <tr className="hover:bg-lime-200">
-        <td className="border border-gray-300 p-3 text-teal-500 font-medium">Partner Height</td>
+      <tr className="hover:bg-lime-200 hover:font-bold">
+        <td className="border border-gray-300 p-3 text-teal-500 font-medium hover:font-bold">Partner Height</td>
         <td className="border border-gray-300 p-3 text-gray-600">{partnerHeight || 'N/A'}</td>
       </tr>
-      <tr className="bg-indigo-50 hover:bg-lime-200">
-        <td className="border border-gray-300 p-3 text-teal-500 font-medium">Partner Weight</td>
+      <tr className="bg-indigo-50 hover:bg-lime-200 hover:font-bold">
+        <td className="border border-gray-300 p-3 text-teal-500 font-medium hover:font-bold">Partner Weight</td>
         <td className="border border-gray-300 p-3 text-gray-600">{partnerWeight || 'N/A'}</td>
       </tr>
-      <tr className="hover:bg-lime-200">
-        <td className="border border-gray-300 p-3 text-lime-600 font-medium">Email</td>
+      <tr className="hover:bg-lime-200 hover:font-bold">
+        <td className="border border-gray-300 p-3 text-lime-600 font-medium hover:font-bold">Email</td>
         <td className="border border-gray-300 p-3 text-gray-600">{email || 'N/A'}</td>
       </tr>
-      <tr className="bg-indigo-50 hover:bg-lime-200">
-        <td className="border border-gray-300 p-3 text-lime-600 font-medium">Phone</td>
+      <tr className="bg-indigo-50 hover:bg-lime-200 hover:font-bold">
+        <td className="border border-gray-300 p-3 text-lime-600 font-medium hover:font-bold">Phone</td>
         <td className="border border-gray-300 p-3 text-gray-600">{phone || 'N/A'}</td>
       </tr>
     </tbody>
