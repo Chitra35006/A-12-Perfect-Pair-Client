@@ -7,8 +7,11 @@ import useMarriageList from '../../hooks/useMarriageList';
 import { FaStar } from 'react-icons/fa'; // Importing star icon for review
 import Section_Heading3 from '../Heading/Section_Heading3';
 import Section_Heading_ from '../Heading/Section_Heading_';
+import { useTheme } from '../../Provider/ThemeContext';
+
 
 const SuccessStory = () => {
+    const{theme} = useTheme();
     const [mrLists] = useMarriageList();
     const [sortedStories, setSortedStories] = useState([]);
     
@@ -37,7 +40,7 @@ const SuccessStory = () => {
     };
 
     return (
-        <div className='bg-gray-100 py-10'>
+        <div className={`${theme === "light"? "bg-gray-100":"bg-gray-700"} py-10`}>
             <Section_Heading_ customClass="md:text-3xl" heading={"Success story"}></Section_Heading_>
             <div className="success-story-slider relative w-11/12  mx-auto mt-10 mb-20">
             

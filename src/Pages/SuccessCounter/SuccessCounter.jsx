@@ -4,10 +4,12 @@ import useMarriageList from '../../hooks/useMarriageList';
 import { Card, Row, Col } from 'antd';
 import { FaMale, FaFemale, FaUsers } from 'react-icons/fa';
 import './SuccessCounter.css'; // Import the custom CSS file
+import { useTheme } from '../../Provider/ThemeContext';
 
 const SuccessCounter = () => {
     const [biodatas] = useAllBioData();
     const [mrlists] = useMarriageList();
+    const{theme} = useTheme();
 
     const mrLength = mrlists ? mrlists.length : 0;
     const genderCount = biodatas?.reduce(
@@ -47,8 +49,8 @@ const SuccessCounter = () => {
     ];
 
     return (
-        <div className='mt-10 mb-20 bg-gray-100 p-10 w-10/12 mx-auto shadow-md rounded-2xl border-gray-300 border-2'>
-            <h2 className='w-4/12 mx-auto text-center my-5 text-3xl border-dashed border-lime-400 p-1 mb-10 border-2 font-bold text-black/60'>
+        <div className={`mt-10 mb-20  p-10 w-10/12 mx-auto shadow-md rounded-2xl border-gray-300 border-2 ${theme === "light"? "bg-gray-100":""}`}>
+            <h2 className={`md:w-4/12 mx-auto text-center my-5 md:text-3xl border-dashed border-lime-400 p-1 mb-10 border-2 font-bold ${theme === "light"?"text-black/60":"text-gray-400"}  `}>
                 Success Counter
             </h2>
             <Row gutter={[16, 16]} justify="center">
@@ -71,7 +73,7 @@ const SuccessCounter = () => {
                             <div style={{ flex: '1', display: 'flex', justifyContent: 'center' }}>
                                 {card.icon}
                             </div>
-                            <div className='text-3xl' style={{ flex: '2', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                            <div className='md:text-3xl text-xl' style={{ flex: '2', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                                 <h4>{card.count}</h4>
                                 <h3>{card.title}</h3>
                             </div>

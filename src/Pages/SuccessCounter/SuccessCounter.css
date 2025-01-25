@@ -9,7 +9,7 @@
   
   .custom-card:hover h3,
   .custom-card:hover h4 {
-    color: #99ff33; /* Change text color on hover (for better visibility) */
+    color: #ccff99; /* Change text color on hover (for better visibility) */
   }
   
   .custom-card:hover .ant-card-body {
