@@ -6,7 +6,7 @@ import logo from "../../assets/logo.png";
 const Footer = () => {
   const { theme } = useTheme();
   return (
-    <div className={`shadow-xl border-none md:border-double rounded-md md:border-cyan-700 md:border-x-2 container mx-auto px-6 py-10  ${theme ==="light" ? "bg-slate-600" : "bg-[linear-gradient(25deg,#99f6e4_5%,_white_40%,_white_40%,#bef264_100%)]"}`}>
+    <div className={`shadow-xl  border-none md:border-double rounded-md md:border-cyan-700 md:border-x-2 container mx-auto px-6 py-10  ${theme ==="light" ? "bg-slate-600" : "bg-[linear-gradient(25deg,#99f6e4_5%,_white_40%,_white_40%,#bef264_100%)]"}`}>
       <div className="flex flex-col md:flex-row items-center justify-center mb-4">
         {/* Brand Section */}
         <div className="text-xl font-bold">

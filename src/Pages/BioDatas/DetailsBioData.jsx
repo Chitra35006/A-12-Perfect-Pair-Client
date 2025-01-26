@@ -2,6 +2,8 @@ import React from 'react';
 import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import { Card, Row, Col, Button } from 'antd';
 import {ArrowRightOutlined } from "@ant-design/icons";
+import 'sweetalert2/dist/sweetalert2.min.css';
+
 import { 
     UserOutlined, 
     CalendarOutlined, 
@@ -16,11 +18,16 @@ import {
 import useBioData from '../../hooks/useBioData';
 import useAuth from '../../hooks/useAuth';
 import UseAllUsers from '../../hooks/UseAllUsers';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
+import Swal from 'sweetalert2';
 
 
 const DetailsBioData = () => {
     const navigate = useNavigate();
     const{userInfo} = UseAllUsers();
+    const{user} = useAuth();
+    const axiosSecure = useAxiosSecure();
+ 
     const {gender,
         name,
         photo,
@@ -39,7 +46,45 @@ const DetailsBioData = () => {
         partnerWeight,
         email,id,
         phone} = useLoaderData();
-        console.log(userInfo);
+        // console.log(userInfo);
+    const handleFavourite = ()=>{
+      const fData ={
+         
+         id:id,
+         name:name,
+         occupation:occupation,
+         email:user.email,
+         photo:photo,
+
+      }
+      console.log(fData);
+      axiosSecure.post("/addFavourite", fData)
+  .then((res) => {
+    console.log("Response from server:", res.data);
+    if (res.data.insertedId) {
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: `${name} Added to your favorite Page.`,
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      navigate('/dashboard/favBioData');
+    }
+  })
+  .catch((error) => {
+    console.error("Error adding to favorites:", error);
+    Swal.fire({
+      position: "top-end",
+      icon: "error",
+      title: "Failed to add to favorites. Please try again later.",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+  });
+
+      
+    }
     return (
        <div className='mt-20 mb-10'>
 <Card className="w-full max-w-[600px] mx-auto rounded-xl shadow-lg overflow-hidden">
@@ -75,35 +120,33 @@ const DetailsBioData = () => {
       <p className="m-0">
         <PushpinOutlined className="text-teal-500" /> <strong>Height:</strong> {userHeight}
       </p>
-      <Link>
-        <Button
-          type="primary"
-          icon={<ArrowRightOutlined />}
-          style={{
-            borderRadius: "4px",
-            backgroundColor: "#388e3c",
-            borderColor: "#66bb6a",
-            color: "#ffffff",
-            fontWeight: "bold",
-            transition: "all 0.3s ease",
-            marginTop: "20px",
-          }}
-          onMouseOver={(e) => {
-            e.currentTarget.style.backgroundImage =
-              "linear-gradient(to right, #00796b, #00897b, #00897b)";
-            e.currentTarget.style.color = "#ffffff";
-            e.currentTarget.style.borderColor = "#2e7d32";
-          }}
-          onMouseOut={(e) => {
-            e.currentTarget.style.backgroundImage = "none";
-            e.currentTarget.style.backgroundColor = "#388e3c";
-            e.currentTarget.style.color = "#ffffff";
-            e.currentTarget.style.borderColor = "#66bb6a";
-          }}
-        >
-          Add To Favorite
-        </Button>
-      </Link>
+      <div>
+      <Button     
+      onClick={()=>handleFavourite()}
+                    className='my-4'
+                    icon={<ArrowRightOutlined />}
+                    style={{
+                      backgroundColor: 'transparent',
+                      color: '#365314',
+                      borderBottom: '4px solid #84cc16',
+                      fontWeight: 'bold',
+                      borderRadius: '0.5rem',
+                      transition: 'all 0.3s ease',
+                    }}
+                    onMouseOver={(e) => {
+                      e.currentTarget.style.backgroundColor = 'teal';
+                      e.currentTarget.style.color = 'white';
+                      e.currentTarget.style.borderBottom = "4px solid teal";
+                    }}
+                    onMouseOut={(e) => {
+                      e.currentTarget.style.backgroundColor = 'transparent';
+                      e.currentTarget.style.color = '#365314';
+                      e.currentTarget.style.borderBottom = "4px solid #84cc16";
+                    }}
+                  >
+                    Add To Favourite
+                  </Button>
+      </div>
     </div>
   </div>
 

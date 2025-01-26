@@ -97,32 +97,30 @@ const BioDataCard = ({biodata,idx}) => {
         </Row>
         <div style={{ textAlign: "right", marginTop: "auto" }}>
           <Link to={`/allBiodataDetails/${_id}`}>
-            <Button
-              type="primary"
-              icon={<ArrowRightOutlined />}
-              style={{
-                borderRadius: "4px",
-                backgroundColor: "#388e3c", // Default dark green
-                borderColor: "#66bb6a", // Default vibrant green
-                color: "#ffffff", // Default text color
-                fontWeight: "bold", // Bold font
-                transition: "all 0.3s ease",
-              }}
-              onMouseOver={(e) => {
-                e.currentTarget.style.backgroundImage =
-                  "linear-gradient(to right, #00796b, #00897b, #00897b)";
-                e.currentTarget.style.color = "#ffffff";
-                e.currentTarget.style.borderColor = "#2e7d32";
-              }}
-              onMouseOut={(e) => {
-                e.currentTarget.style.backgroundImage = "none";
-                e.currentTarget.style.backgroundColor = "#388e3c";
-                e.currentTarget.style.color = "#ffffff";
-                e.currentTarget.style.borderColor = "#66bb6a";
-              }}
-            >
-              View Profile
-            </Button>
+             <Button
+                        
+                        icon={<ArrowRightOutlined />}
+                        style={{
+                          backgroundColor: 'transparent',
+                          color: '#365314',
+                          borderBottom: '4px solid #84cc16',
+                          fontWeight: 'bold',
+                          borderRadius: '0.5rem',
+                          transition: 'all 0.3s ease',
+                        }}
+                        onMouseOver={(e) => {
+                          e.currentTarget.style.backgroundColor = 'teal';
+                          e.currentTarget.style.color = 'white';
+                          e.currentTarget.style.borderBottom = "4px solid teal";
+                        }}
+                        onMouseOut={(e) => {
+                          e.currentTarget.style.backgroundColor = 'transparent';
+                          e.currentTarget.style.color = '#365314';
+                          e.currentTarget.style.borderBottom = "4px solid #84cc16";
+                        }}
+                      >
+                        View Profile
+                      </Button>
           </Link>
         </div>
       </Card>
