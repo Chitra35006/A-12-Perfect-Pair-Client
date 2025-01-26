@@ -32,13 +32,13 @@ const SuccessCounter = () => {
           icon: <FaMale size={80} style={{ color: "#fff" }} />, // Icon size and color
           count: totalMale,
           title: "Boys",
-          bgGradient: "linear-gradient(to right, #ff9a9e, #ff80aa)", // Light pink gradient
+          bgGradient: "linear-gradient(to right, #f8bbd0, #ff80aa)", // Light pink gradient
         },
         {
           icon: <FaFemale size={80} style={{ color: "#fff" }} />, // Icon size and color
           count: totalFemale,
           title: "Girls",
-          bgGradient: "linear-gradient(to right, #5dade2, #1f618d)", // Light pink to light violet gradient
+          bgGradient: "linear-gradient(to right,#90caf9 , #1e88e5 )", // Light pink to light violet gradient
         },
         {
           icon: <FaUsers size={80} style={{ color: "#fff" }} />, // Icon size and color

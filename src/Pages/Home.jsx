@@ -1,9 +1,9 @@
 import { Helmet } from "react-helmet";
 import Banner from "./Banner/Banner";
-import WorkingProcess from "./HowItWorks/WorkingProcess";
 import Featured from "./Featured/Featured";
 import SuccessStory from "./SuccesStory/SuccessStory";
 import SuccessCounter from "./SuccessCounter/SuccessCounter";
+import PreimumUsers from "./PremimumUsers/PreimumUsers";
 
 
 const Home = () => {
@@ -11,7 +11,7 @@ const Home = () => {
         <div>
             <Helmet><title>Perfect Pair | Home</title></Helmet>
            <Banner></Banner>
-           <WorkingProcess></WorkingProcess>
+            <PreimumUsers></PreimumUsers>
            <Featured></Featured>
            <SuccessCounter></SuccessCounter>
            <SuccessStory></SuccessStory>

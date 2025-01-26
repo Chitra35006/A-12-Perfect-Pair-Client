@@ -13,9 +13,12 @@ import {
     MailOutlined, 
     HomeOutlined 
   } from '@ant-design/icons';
+import useBioData from '../../hooks/useBioData';
+
 
 const DetailsBioData = () => {
     const navigate = useNavigate();
+  
     const {gender,
         name,
         photo,
@@ -34,6 +37,7 @@ const DetailsBioData = () => {
         partnerWeight,
         email,id,
         phone} = useLoaderData();
+        
     return (
        <div className='mt-20 mb-10'>
 <Card className="w-full max-w-[600px] mx-auto rounded-xl shadow-lg overflow-hidden">
@@ -154,6 +158,8 @@ const DetailsBioData = () => {
       </p>
     </div>
     
+    {/* {
+  userBio?.role ? (
     <div className="flex justify-between md:flex-nowrap gap-4 flex-wrap items-center w-full">
       <p className="border border-gray-300 rounded-md md:w-1/2 w-full p-2 bg-lime-100 text-teal-600">
         <MailOutlined className="text-lime-600 " /> <strong>Email:</strong> <span className='text-gray-700 font-medium'>{email}</span>
@@ -162,6 +168,10 @@ const DetailsBioData = () => {
         <PhoneOutlined className="text-lime-600 " /> <strong>Phone:</strong> <span className='text-gray-700 font-medium'>{phone}</span>
       </p>
     </div>
+  ) : null // If role is not present or falsy, render nothing or any fallback
+} */}
+
+
 
   </div>
 </div>
