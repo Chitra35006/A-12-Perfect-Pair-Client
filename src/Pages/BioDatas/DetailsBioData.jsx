@@ -92,8 +92,10 @@ const DetailsBioData = () => {
       setTotalPrice((prevPrice) => prevPrice + 5);
       const data={
         id:id,
+        reqName:name,
         price:"5",
         email:user.email
+        
       }
       const contactRequest = await axiosSecure.post('/contactRequest',data)
       navigate('/dashboard/payment',{state: data});
