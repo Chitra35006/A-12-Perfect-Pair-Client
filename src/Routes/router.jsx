@@ -22,6 +22,7 @@ import GotMarriedRoute from "../Pages/DashBoard/UserDashboard/GotMarriedRoute";
 import UserBioDataPage from "../Pages/DashBoard/UserDashboard/UserBioDataPage";
 import DetailsBioData from "../Pages/BioDatas/DetailsBioData";
 import PrivateRoute from "./PrivateRoute";
+import Payment from "../Pages/DashBoard/UserDashboard/Payment";
   export const router = createBrowserRouter([
     {
       path: "/",
@@ -102,6 +103,10 @@ import PrivateRoute from "./PrivateRoute";
     {
       path:"gotMarried",
       element:<GotMarriedRoute></GotMarriedRoute>
+    },
+    {
+      path:"payment",
+      element:<Payment></Payment>
     }
   ]
 }

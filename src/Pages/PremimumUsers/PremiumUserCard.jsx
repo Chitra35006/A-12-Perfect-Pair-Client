@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, Button } from "antd";
-import { UserOutlined, CalendarOutlined, SolutionOutlined, ArrowRightOutlined } from "@ant-design/icons";
+import { UserOutlined, CalendarOutlined, SolutionOutlined, ArrowRightOutlined,EnvironmentOutlined  } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 
 const PremiumUserCard = ({ premiumBiodata }) => {
@@ -49,7 +49,7 @@ const PremiumUserCard = ({ premiumBiodata }) => {
           <span>Occupation: {occupation}</span>
         </p>
         <p className="flex items-center">
-          <SolutionOutlined className="mr-2" />
+          <EnvironmentOutlined  className="mr-2" />
           <span>Division: {permanentDivision}</span>
         </p>
       </div>

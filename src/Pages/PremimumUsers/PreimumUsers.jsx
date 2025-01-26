@@ -22,7 +22,7 @@ const PreimumUsers = () => {
         () => biodatas.filter((biodata) => biodata.role === "premium"),
         [biodatas]
     );
-    console.log(premiumBiodatas);
+    // console.log(premiumBiodatas);
 
 
     const sortBiodatas = () => {
@@ -45,7 +45,7 @@ const PreimumUsers = () => {
     };
 
     // Log to check if premiumBiodatas are correctly filtered and available
-    console.log("Premium Biodatas: ", premiumBiodatas);
+    // console.log("Premium Biodatas: ", premiumBiodatas);
 
     return (
         <div className='my-20 w-11/12 mx-auto bg-slate-100 px-4'>

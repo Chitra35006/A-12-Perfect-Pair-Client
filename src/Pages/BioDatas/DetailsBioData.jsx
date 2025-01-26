@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import { Card, Row, Col, Button } from 'antd';
 import {ArrowRightOutlined } from "@ant-design/icons";
@@ -26,6 +26,7 @@ const DetailsBioData = () => {
     const navigate = useNavigate();
     const{userInfo} = UseAllUsers();
     const{user} = useAuth();
+     const [totalPrice, setTotalPrice] = useState(0);
     const axiosSecure = useAxiosSecure();
  
     const {gender,
@@ -46,6 +47,7 @@ const DetailsBioData = () => {
         partnerWeight,
         email,id,
         phone} = useLoaderData();
+        
         // console.log(userInfo);
     const handleFavourite = ()=>{
       const fData ={
@@ -84,6 +86,18 @@ const DetailsBioData = () => {
   });
 
       
+    }
+
+    const handlePayment = async ()=>{
+      setTotalPrice((prevPrice) => prevPrice + 5);
+      const data={
+        id:id,
+        price:"5",
+        email:user.email
+      }
+      const contactRequest = await axiosSecure.post('/contactRequest',data)
+      navigate('/dashboard/payment',{state: data});
+
     }
     return (
        <div className='mt-20 mb-10'>
@@ -215,6 +229,40 @@ const DetailsBioData = () => {
     </div>
   ) : null
 }
+{/* //Request for contact */}
+{
+  userInfo?.role === "premium" ? null : (
+    <div style={{ display: "flex", justifyContent: "flex-end", width: "100%" }}>
+      <Button
+        onClick={() => handlePayment()}
+        className="my-4"
+        icon={<ArrowRightOutlined />}
+        style={{
+          backgroundColor: "transparent",
+          color: "#365314",
+          borderBottom: "4px solid #84cc16",
+          fontWeight: "bold",
+          borderRadius: "0.5rem",
+          transition: "all 0.3s ease",
+        }}
+        onMouseOver={(e) => {
+          e.currentTarget.style.backgroundColor = "teal";
+          e.currentTarget.style.color = "white";
+          e.currentTarget.style.borderBottom = "4px solid teal";
+        }}
+        onMouseOut={(e) => {
+          e.currentTarget.style.backgroundColor = "transparent";
+          e.currentTarget.style.color = "#365314";
+          e.currentTarget.style.borderBottom = "4px solid #84cc16";
+        }}
+      >
+        Request For Contact
+      </Button>
+    </div>
+  )
+}
+
+
 
 
 
