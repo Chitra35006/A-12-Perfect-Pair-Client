@@ -71,7 +71,7 @@ const PremiumUserCard = ({ premiumBiodata }) => {
             onMouseOver={(e) => {
               e.currentTarget.style.backgroundColor = 'teal';
               e.currentTarget.style.color = 'white';
-              e.currentTarget.style.borderBottom = "4px solid #5eead4";
+              e.currentTarget.style.borderBottom = "4px solid teal";
             }}
             onMouseOut={(e) => {
               e.currentTarget.style.backgroundColor = 'transparent';
