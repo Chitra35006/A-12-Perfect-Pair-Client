@@ -1,8 +1,81 @@
-# React + Vite
+ #Project Name: Perfect Pair [ A Matrimony Platform ]
+## :::Description:::
+This project is a Matrimony platform using the powerful MERN stack (MongoDB, Express, React, and Node.js). This online platform will enable users to connect with potential life partners in an intuitive, user-friendly environment. It has admin & user dashboard. Also people can be a premier user by requesting. If admin approve it then he user can see the requested contact. Also it if user a normal user then he have to pay 5usd to see the requested each contact.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## :::Project Features:::
+1. **User Friendly Interactivity**
+2. **Responsive Design**
+3. **Firebase Authentication**
 
-Currently, two official plugins are available:
+    ### Normal User:
+    - Add user bio
+    - Update user bio
+    - Add contact to Favorite 
+    - Upload Marital Status, share reviews, thoughts
+    - View user bio
+    - Request to get Number [Pay USD]
+    - Request for a premium user
+    - After approval, can see all user contact information
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+    ### Admin:
+    - Admin Home [see all user total, male, female, revenue]
+    - Manage Users: Make admin or premium
+    - Approve Premium
+    - Approve Contact Request
+    - See Success Story
+
+      
+
+## :::Technologies Used:::
+
+- **Frontend**: React.js, TailwindCSS, AntDesign
+- **Backend**: Node.js, Express.js
+- **Database**: MongoDB
+- **Authentication**: Firebase Authentication
+- **Hosting**: Client(Firebase) & Server(Vercel)
+
+
+### Dependencies:
+- `@ant-design/icons`: ^5.5.2
+- `@ant-design/plots`: ^2.3.3
+- `@emotion/react`: ^11.14.0
+- `@emotion/styled`: ^11.14.0
+- `@mui/icons-material`: ^6.4.0
+- `@mui/material`: ^6.4.0
+- `@react-icons/all-files`: ^4.1.0
+- `@stripe/react-stripe-js`: ^3.1.1
+- `@stripe/stripe-js`: ^5.5.0
+- `@tanstack/react-query`: ^5.64.2
+- `animate.css`: ^4.1.1
+- `animate.css-react`: ^1.1.0
+- `antd`: ^5.23.1
+- `axios`: ^1.7.9
+- `clsx`: ^2.1.1
+- `date-fns`: ^4.1.0
+- `dayjs`: ^1.11.13
+- `firebase`: ^11.2.0
+- `localforage`: ^1.10.0
+- `lottie-react`: ^2.4.0
+- `match-sorter`: ^8.0.0
+- `moment`: ^2.30.1
+- `moment-timezone`: ^0.5.46
+- `motion`: ^11.18.2
+- `react`: ^18.3.1
+- `react-datepicker`: ^7.6.0
+- `react-dom`: ^18.3.1
+- `react-gradient-text`: ^0.1.0
+- `react-helmet`: ^6.1.0
+- `react-hook-form`: ^7.54.2
+- `react-icons`: ^5.4.0
+- `react-moment`: ^1.1.3
+- `react-router-dom`: ^7.1.3
+- `react-select`: ^5.9.0
+- `sort-by`: ^1.2.0
+- `sweetalert2`: ^11.15.10
+- `swiper`: ^11.2.1
+- `tailwindcss-animate`: ^1.0.7
+
+
+
+## ::: Live Link :::
+ https://a-12-perfect-pair.web.app
