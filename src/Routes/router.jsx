@@ -41,7 +41,7 @@ import AdminRoute from "./AdminRoute";
         {
           path:'/allBiodataDetails/:id',
           element:<PrivateRoute><DetailsBioData></DetailsBioData></PrivateRoute>,
-          loader:({params})=>fetch(`http://localhost:5000/allBioData/${params.id}`)
+          loader:({params})=>fetch(`https://a-12-perfect-pair-server.vercel.app/allBioData/${params.id}`)
 
         },
         {
