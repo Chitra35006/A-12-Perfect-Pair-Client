@@ -24,6 +24,7 @@ import DetailsBioData from "../Pages/BioDatas/DetailsBioData";
 import PrivateRoute from "./PrivateRoute";
 import Payment from "../Pages/DashBoard/UserDashboard/Payment";
 import Four04Page from "../Pages/Four04Page/Four04Page";
+import AdminRoute from "./AdminRoute";
   export const router = createBrowserRouter([
     {
       path: "/",
@@ -63,27 +64,27 @@ import Four04Page from "../Pages/Four04Page/Four04Page";
 },
 {
   path:"/dashboard",
-  element:<DashBoard></DashBoard>,
+  element:<PrivateRoute><DashBoard></DashBoard></PrivateRoute>,
   children:[
     {
       path: "adminDashboard",
-      element:<AdminHome></AdminHome>
+      element:<AdminRoute><AdminHome></AdminHome></AdminRoute>
     },
     {
       path:"manageUsers",
-      element:<AdminManageUser></AdminManageUser>
+      element:<AdminRoute><AdminManageUser></AdminManageUser></AdminRoute>
     },
     {
       path:"appPremium",
-      element:<MakePremium></MakePremium>
+      element:<AdminRoute><MakePremium></MakePremium></AdminRoute>
     },
     {
       path:"appContact",
-      element:<ApproveContactRequest></ApproveContactRequest>
+      element:<AdminRoute><ApproveContactRequest></ApproveContactRequest></AdminRoute>
     },
     {
       path:"ssStory",
-      element:<SuccessStory></SuccessStory>
+      element:<AdminRoute><SuccessStory></SuccessStory></AdminRoute>
     },
     {
       path:"addEditBio",

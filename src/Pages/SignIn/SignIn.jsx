@@ -14,7 +14,7 @@ import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import { MdError } from "react-icons/md";
 import SocioLogin from "../SocioLogin/SocioLogin";
-
+import {ArrowRightOutlined } from "@ant-design/icons";
 const SignIn = () => {
   const{signIn} = useAuth();
   const {
@@ -67,6 +67,15 @@ const SignIn = () => {
       <Helmet>
         <title>Perfect Pair | Login</title>
       </Helmet>
+      <div>
+      <a
+    href="/"
+    className="flex items-center text-lime-500 hover:text-blue-500 transition-colors duration-300"
+  >
+    <ArrowRightOutlined className="text-xl md:text-2xl" />
+    <span className="ml-1 text-sm md:text-base font-medium">Go Home</span>
+  </a>
+      </div>
       <div className="text-xl font-bold flex my-4 justify-center items-center">
         <a
           href="/"

@@ -92,8 +92,8 @@ const MakePremium = () => {
 
   return (
     <div className="mx-10">
-      <h2 className="text-lg font-bold mb-4">
-        Premium Users ({prUsers.length})
+      <h2 className="text-lg font-bold mt-4 mb-4">
+        Premium Users With TxId ({prUsers.length})
       </h2>
       <Table
         key={updateTrigger} // Force re-render on state change

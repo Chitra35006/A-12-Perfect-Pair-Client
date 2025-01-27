@@ -12,11 +12,13 @@ import useAuth from "../../../hooks/useAuth";
 import PrimaryButton from "../../Buttons/PrimaryButton";
 import SecondaryButton from "../../Buttons/SecondaryButton";
 import { Avatar, Tooltip } from "@mui/material";
+import useAdmin from "../../../hooks/useAdmin";
 
 
 const NavBar = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-
+ const [isAdmin] = useAdmin();
+ console.log(isAdmin);
   // Toggle the mobile menu
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
@@ -81,20 +83,12 @@ const NavBar = () => {
           Contact Us
         </NavLink>
       </li>
-      {user?.email && (
-        <li className="hover:text-lime-400">
-          <NavLink
-            className={({ isActive }) =>
-              isActive
-                ? "text-lime-400 font-bold border-b-4 pb-1 border-green-700"
-                : "text-gray-500 hover:text-lime-500"
-            }
-            to="/dashboard"
-          >
-            Dashboard
-          </NavLink>
-        </li>
-      )}
+      {
+            user && isAdmin && <li className="text-gray-500 hover:text-lime-500"><Link to="/dashboard/adminDashboard">Dashboard</Link></li>
+        }
+        {
+            user && !isAdmin && <li className="text-gray-500 hover:text-lime-500"><Link to="/dashboard/addEditBio">Dashboard</Link></li>
+        }
     </>
   );
   return (

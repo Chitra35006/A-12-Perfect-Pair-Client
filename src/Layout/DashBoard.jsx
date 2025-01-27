@@ -16,9 +16,13 @@ import { motion, MotionConfig } from "motion/react";
 
 import { UserOutlined } from "@ant-design/icons";
 import { Avatar } from '@mui/material';
+import useAdmin from "../hooks/useAdmin";
+
 
 
 const DashBoard = () => {
+  
+ const [isAdmin] = useAdmin();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false); // State to manage sidebar visibility
 
   const toggleSidebar = () => {
@@ -32,7 +36,7 @@ const DashBoard = () => {
       .catch((error) => console.log(error));
   };
 
-  const isAdmin = true;
+ 
 
   return (
     <div>

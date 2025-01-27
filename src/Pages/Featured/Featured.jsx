@@ -20,10 +20,10 @@ const Featured = () => {
         First, register here, and you will see the biodata at the top. Click there, and you will find all the biodatas.
       </p>
       <p className="flex items-center"><DoubleRightOutlined className='bg-gray-700 p-2 rounded-full mr-2'/> 
-        You can add users to your favorites & request to see the contact address. There will be a checkout page where you need to pay 5 USD.
+        You can add users to your favorites & request to see the contact address. There will be a checkout page where you need to pay 5 USD to see each requested contact.
       </p>
       <p className="flex items-center"><DoubleRightOutlined className='bg-gray-700 p-2 rounded-full mr-2'/> 
-        You can also find the user dashboard, where you can add or edit your biodata, manage your contact requests, and view your added favorite profiles.
+        You can also find the user dashboard, where you can add or edit your biodata, manage your contact requests, and view your added favorite profiles.Also upload your marital status share reviews in got married route
       </p>
     </div>
   </div>

@@ -6,6 +6,14 @@ const axiosSecure = axios.create({
 });
 
 const useAxiosSecure = () => {
+  // Get the JWT token from localStorage
+  const token = localStorage.getItem("access-token");
+
+  // Attach the token to the Authorization header if it exists
+  if (token) {
+    axiosSecure.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+  }
+
   return axiosSecure;
 };
 

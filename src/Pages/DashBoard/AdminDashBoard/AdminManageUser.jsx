@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
-import { Table, Button } from "antd";
+import { Table, Button, Input } from "antd";
 import Swal from "sweetalert2";
 
 const AdminManageUser = () => {
   const axiosSecure = useAxiosSecure();
+  const [searchTerm, setSearchTerm] = useState("");
+  const [disableButtons, setDisableButtons] = useState(false); // Add disableButtons state
+
   const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
@@ -14,100 +17,101 @@ const AdminManageUser = () => {
     },
   });
 
+  // Filter users based on search term
+  const filteredUsers = users.filter((user) =>
+    user.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   const handleMakeAdmin = (userId, userName, currentRole) => {
-    console.log(`/users/admin/${userId}`);
     if (userId && currentRole !== "admin") {
-      axiosSecure.patch(`/users/admin/${userId}`)
-        .then(res => {
-          console.log("Patch Response:", res.data); // Log the entire response
-          console.log("Modified Count:", res.data.modifiedCount);
+      setDisableButtons(true); // Disable both buttons when making the user admin
+      axiosSecure
+        .patch(`/users/admin/${userId}`)
+        .then((res) => {
           if (res.data.modifiedCount > 0) {
-            // Refetch to update users list and reflect the change in UI
             Swal.fire({
               position: "top-end",
               icon: "success",
-              title: `${userName} is an Admin Now!`, // Use the passed userName
+              title: `${userName} is an Admin Now!`,
               showConfirmButton: false,
               timer: 1500,
             });
             refetch();
           }
         })
-        .catch(error => {
-          console.error('Error making user admin:', error);
+        .catch((error) => {
           Swal.fire({
             icon: "error",
             title: "Failed to make user admin!",
             text: error.message,
           });
-        });
+        })
+        .finally(() => setDisableButtons(false)); // Re-enable buttons after refetch
     }
   };
-  
 
-  const handleMakePremium = (userId,userName, currentRole) => {
-    console.log(`/users/premium/${userId}`);
+  const handleMakePremium = (userId, userName, currentRole) => {
     if (userId && currentRole !== "premium") {
-      axiosSecure.patch(`/users/premium/${userId}`)
-        .then(res => {
-          console.log("Patch Response:", res.data); // Log the entire response
-          console.log("Modified Count:", res.data.modifiedCount);
+      setDisableButtons(true); // Disable both buttons when making the user premium
+      axiosSecure
+        .patch(`/users/premium/${userId}`)
+        .then((res) => {
           if (res.data.modifiedCount > 0) {
-            // Refetch to update users list and reflect the change in UI
             Swal.fire({
               position: "top-end",
               icon: "success",
-              title: `${userName} now is a PREMIUM user!`, // Use the passed userName
+              title: `${userName} now is a PREMIUM user!`,
               showConfirmButton: false,
               timer: 1500,
             });
             refetch();
           }
         })
-        .catch(error => {
-          console.error('Error making user PREMIUM :', error);
+        .catch((error) => {
           Swal.fire({
             icon: "error",
-            title: "Failed to make user PREMIUM !",
+            title: "Failed to make user PREMIUM!",
             text: error.message,
           });
-        });
+        })
+        .finally(() => setDisableButtons(false)); // Re-enable buttons after refetch
     }
   };
 
   const columns = [
     {
-      title: <div className="bg-gray-300  p-2 text-center text-indigo-900 font-bold">Name</div>,
+      title: "Name",
       dataIndex: "name",
       key: "name",
-      align:"center",
-      
+      align: "center",
       render: (text) => <span className="font-bold text-indigo-900">{text}</span>,
     },
     {
-      title: <div className="bg-gray-300 p-2 text-center text-indigo-900 font-bold">Email</div>,
+      title: "Email",
       dataIndex: "email",
       key: "email",
-      align:"center",
+      align: "center",
     },
     {
-      title: <div className="bg-lime-300 p-2 text-center text-indigo-900 font-bold">Actions</div>,
+      title: "Actions",
       key: "actions",
       render: (_, record) => (
         <div style={{ display: "flex", gap: "10px", justifyContent: "center" }}>
-          <Button
-            className="bg-indigo-900 font-bold"
+          <Button className="bg-indigo-900"
             type="primary"
-            onClick={() => handleMakeAdmin(record._id, record.name,record.role,)} // Pass the current role to check
-            disabled={record.role === 'admin'} // Disable button if already admin
+            onClick={() =>
+              handleMakeAdmin(record._id, record.name, record.role)
+            }
+            disabled={record.role === "admin" || disableButtons} // Disable if user is admin or if buttons are globally disabled
           >
-            {record.role === 'admin' ? 'Admin' : 'Make Admin'}
+            {record.role === "admin" ? "Admin" : "Make Admin"}
           </Button>
-          <Button
-            className="border-lime-500 font-semibold"
+          <Button className="border-lime-400"
             type="default"
-            onClick={() => handleMakePremium(record._id, record.name,record.role,)}
-            disabled={record.role === 'premium'} 
+            onClick={() =>
+              handleMakePremium(record._id, record.name, record.role)
+            }
+            disabled={record.role === "premium" || disableButtons} // Disable if user is premium or if buttons are globally disabled
           >
             Make Premium
           </Button>
@@ -121,11 +125,23 @@ const AdminManageUser = () => {
       <h1 className="text-xl font-bold text-indigo-900 border-double border-y-2 md:w-1/4 w-2/4 text-center border-lime-400 py-1 mx-auto mb-4">
         All Users
       </h1>
+
+      {/* Search Input */}
+      <div className="mb-5 text-center">
+        <Input
+          placeholder="Search users by name"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          style={{ width: "50%", margin: "0 auto" }}
+        />
+      </div>
+
       <h2 className="text-center text-indigo-900 font-bold mb-5">
-        Total Users: {users.length}
+        Total Users: {filteredUsers.length}
       </h2>
+
       <Table
-        dataSource={users}
+        dataSource={filteredUsers}
         columns={columns}
         rowKey={(record) => record._id}
         pagination={{
