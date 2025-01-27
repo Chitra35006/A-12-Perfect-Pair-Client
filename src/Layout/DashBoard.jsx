@@ -32,7 +32,7 @@ const DashBoard = () => {
       .catch((error) => console.log(error));
   };
 
-  const isAdmin = false;
+  const isAdmin = true;
 
   return (
     <div>
@@ -102,7 +102,7 @@ const DashBoard = () => {
           <li className="flex items-center space-x-2">
             <NavLink className={({ isActive }) => 
     isActive ? 'flex items-center space-x-2 text-indigo-900 font-bold bg-lime-300 px-4 py-2 rounded-lg' : 'flex items-center space-x-2 text-green-900'
-  } to="/adminDashboard">
+  } to="/dashboard/adminDashboard">
               <MdDashboard className="mr-2" /> Admin Dashboard
             </NavLink>
           </li>

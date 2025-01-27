@@ -23,6 +23,7 @@ import UserBioDataPage from "../Pages/DashBoard/UserDashboard/UserBioDataPage";
 import DetailsBioData from "../Pages/BioDatas/DetailsBioData";
 import PrivateRoute from "./PrivateRoute";
 import Payment from "../Pages/DashBoard/UserDashboard/Payment";
+import Four04Page from "../Pages/Four04Page/Four04Page";
   export const router = createBrowserRouter([
     {
       path: "/",
@@ -61,7 +62,7 @@ import Payment from "../Pages/DashBoard/UserDashboard/Payment";
     ]
 },
 {
-  path:"dashboard",
+  path:"/dashboard",
   element:<DashBoard></DashBoard>,
   children:[
     {
@@ -109,5 +110,10 @@ import Payment from "../Pages/DashBoard/UserDashboard/Payment";
       element:<Payment></Payment>
     }
   ]
+},
+{
+  path:"*",
+  element:<Four04Page></Four04Page>
 }
+
   ])
