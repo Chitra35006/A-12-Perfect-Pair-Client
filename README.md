@@ -1,4 +1,4 @@
- #Project Name: Perfect Pair [ A Matrimony Platform ]
+ # Project Name: Perfect Pair [ A Matrimony Platform ]
 ## :::Description:::
 This project is a Matrimony platform using the powerful MERN stack (MongoDB, Express, React, and Node.js). This online platform will enable users to connect with potential life partners in an intuitive, user-friendly environment. It has admin & user dashboard. Also people can be a premier user by requesting. If admin approve it then he user can see the requested contact. Also it if user a normal user then he have to pay 5usd to see the requested each contact.
 
