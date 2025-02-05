@@ -62,7 +62,7 @@ This project is a Matrimony platform using the powerful MERN stack (MongoDB, Exp
 <br><br
 
 
-### Dependencies:
+<h3 align="left">::: Dependencies :::</h3>
 - `@ant-design/icons`: ^5.5.2
 - `@ant-design/plots`: ^2.3.3
 - `@emotion/react`: ^11.14.0
