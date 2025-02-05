@@ -58,11 +58,7 @@ This project is a Matrimony platform using the powerful MERN stack (MongoDB, Exp
     <td>Client (Firebase), Server (Vercel)</td>
   </tr>
 </table>
-
-</br></br>
-
-
-
+<div style="clear:both;"></div>
 ### Dependencies:
 - @ant-design/icons: ^5.5.2
 - @ant-design/plots: ^2.3.3
