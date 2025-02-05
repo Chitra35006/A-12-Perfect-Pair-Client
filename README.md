@@ -31,33 +31,35 @@ This project is a Matrimony platform using the powerful MERN stack (MongoDB, Exp
       
 
 <h3 align="left">::: Technologies Used :::</h3>
-<table align="left" style="width: 100%; border-collapse: collapse;">
+
+<table align="left" width="100%">
   <tr>
-    <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Category</th>
-    <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Technologies</th>
+    <th>Category</th>
+    <th>Technologies</th>
   </tr>
   <tr>
-    <td style="border: 1px solid #ddd; padding: 8px;">Frontend</td>
-    <td style="border: 1px solid #ddd; padding: 8px;">React.js, TailwindCSS, AntDesign</td>
+    <td>Frontend</td>
+    <td>React.js, TailwindCSS, AntDesign</td>
   </tr>
   <tr>
-    <td style="border: 1px solid #ddd; padding: 8px;">Backend</td>
-    <td style="border: 1px solid #ddd; padding: 8px;">Node.js, Express.js</td>
+    <td>Backend</td>
+    <td>Node.js, Express.js</td>
   </tr>
   <tr>
-    <td style="border: 1px solid #ddd; padding: 8px;">Database</td>
-    <td style="border: 1px solid #ddd; padding: 8px;">MongoDB</td>
+    <td>Database</td>
+    <td>MongoDB</td>
   </tr>
   <tr>
-    <td style="border: 1px solid #ddd; padding: 8px;">Authentication</td>
-    <td style="border: 1px solid #ddd; padding: 8px;">Firebase Authentication</td>
+    <td>Authentication</td>
+    <td>Firebase Authentication</td>
   </tr>
   <tr>
-    <td style="border: 1px solid #ddd; padding: 8px;">Hosting</td>
-    <td style="border: 1px solid #ddd; padding: 8px;">Client(Firebase), Server(Vercel)</td>
+    <td>Hosting</td>
+    <td>Client (Firebase), Server (Vercel)</td>
   </tr>
 </table>
-</br>
+
+<br><br
 
 
 ### Dependencies:
