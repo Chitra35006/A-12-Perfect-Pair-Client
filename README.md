@@ -1,4 +1,8 @@
  # Project Name: Perfect Pair [ A Matrimony Platform ]
+ <div align="center">
+  <img height="200" src="https://github.com/Chitra35006/5_practice/blob/7b7ec840d4041c8fb9027636d689a1d6f2f1eb08/pp.png" />
+</div>
+
 ## :::Description:::
 This project is a Matrimony platform using the powerful MERN stack (MongoDB, Express, React, and Node.js). This online platform will enable users to connect with potential life partners in an intuitive, user-friendly environment. It has admin & user dashboard. Also people can be a premier user by requesting. If admin approve it then he user can see the requested contact. Also it if user a normal user then he have to pay 5usd to see the requested each contact.
 
@@ -26,13 +30,34 @@ This project is a Matrimony platform using the powerful MERN stack (MongoDB, Exp
 
       
 
-## :::Technologies Used:::
+<h3 align="left">::: Technologies Used :::</h3>
+<table align="left" style="width: 100%; border-collapse: collapse;">
+  <tr>
+    <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Category</th>
+    <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Technologies</th>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px;">Frontend</td>
+    <td style="border: 1px solid #ddd; padding: 8px;">React.js, TailwindCSS, AntDesign</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px;">Backend</td>
+    <td style="border: 1px solid #ddd; padding: 8px;">Node.js, Express.js</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px;">Database</td>
+    <td style="border: 1px solid #ddd; padding: 8px;">MongoDB</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px;">Authentication</td>
+    <td style="border: 1px solid #ddd; padding: 8px;">Firebase Authentication</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px;">Hosting</td>
+    <td style="border: 1px solid #ddd; padding: 8px;">Client(Firebase), Server(Vercel)</td>
+  </tr>
+</table>
 
-- **Frontend**: React.js, TailwindCSS, AntDesign
-- **Backend**: Node.js, Express.js
-- **Database**: MongoDB
-- **Authentication**: Firebase Authentication
-- **Hosting**: Client(Firebase) & Server(Vercel)
 
 
 ### Dependencies:
