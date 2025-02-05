@@ -59,7 +59,7 @@ This project is a Matrimony platform using the powerful MERN stack (MongoDB, Exp
   </tr>
 </table>
 
-<br><br
+<br><br>
 
 
 ## ::: Dependencies :::
