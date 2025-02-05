@@ -129,7 +129,7 @@ yarn install
  Create a .env file in the root directory of the project:
 ```bash
 touch .env
-d the following variables to your .env file:
+Add the following variables to your .env file:
 
 env
 VITE_apiKey=your_api_key
