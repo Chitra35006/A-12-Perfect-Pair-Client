@@ -59,22 +59,49 @@ This project is a Matrimony platform using the powerful MERN stack (MongoDB, Exp
   </tr>
 </table>
 
-<br><br>
+</br></br>
 
 
-## ::: Dependencies :::
 
-- **UI Libraries**: `@mui/material`, `@mui/icons-material`, `antd`, `@ant-design/icons`, `@ant-design/plots`
-- **State Management**: `@tanstack/react-query`
-- **Form Handling**: `react-hook-form`
-- **Date Handling**: `date-fns`, `moment`, `moment-timezone`, `dayjs`
-- **Animation**: `animate.css`, `motion`, `lottie-react`, `tailwindcss-animate`
-- **Networking**: `axios`
-- **Routing**: `react-router-dom`
-- **Icons**: `react-icons`, `@react-icons/all-files`
-- **Authentication**: `firebase`
-- **Storage**: `localforage`
-- **Miscellaneous**: `clsx`, `match-sorter`, `sort-by`, `sweetalert2`, `swiper`, `react-gradient-text`
+### Dependencies:
+- @ant-design/icons: ^5.5.2
+- @ant-design/plots: ^2.3.3
+- @emotion/react: ^11.14.0
+- @emotion/styled: ^11.14.0
+- @mui/icons-material: ^6.4.0
+- @mui/material: ^6.4.0
+- @react-icons/all-files: ^4.1.0
+- @stripe/react-stripe-js: ^3.1.1
+- @stripe/stripe-js: ^5.5.0
+- @tanstack/react-query: ^5.64.2
+- animate.css: ^4.1.1
+- animate.css-react: ^1.1.0
+- antd: ^5.23.1
+- axios: ^1.7.9
+- clsx: ^2.1.1
+- date-fns: ^4.1.0
+- dayjs: ^1.11.13
+- firebase: ^11.2.0
+- localforage: ^1.10.0
+- lottie-react: ^2.4.0
+- match-sorter: ^8.0.0
+- moment: ^2.30.1
+- moment-timezone: ^0.5.46
+- motion: ^11.18.2
+- react: ^18.3.1
+- react-datepicker: ^7.6.0
+- react-dom: ^18.3.1
+- react-gradient-text: ^0.1.0
+- react-helmet: ^6.1.0
+- react-hook-form: ^7.54.2
+- react-icons: ^5.4.0
+- react-moment: ^1.1.3
+- react-router-dom: ^7.1.3
+- react-select: ^5.9.0
+- sort-by: ^1.2.0
+- sweetalert2: ^11.15.10
+- swiper: ^11.2.1
+- tailwindcss-animate: ^1.0.7
 
 
 
