@@ -1,6 +1,6 @@
  # Project Name: Perfect Pair [ A Matrimony Platform ]
  <div align="center">
-  <img height="200" src="https://github.com/Chitra35006/5_practice/blob/7b7ec840d4041c8fb9027636d689a1d6f2f1eb08/pp.png" />
+  <img height="400" width="100%" src="https://github.com/Chitra35006/5_practice/blob/7b7ec840d4041c8fb9027636d689a1d6f2f1eb08/pp.png" />
 </div>
 
 ## :::Description:::
@@ -57,7 +57,7 @@ This project is a Matrimony platform using the powerful MERN stack (MongoDB, Exp
     <td style="border: 1px solid #ddd; padding: 8px;">Client(Firebase), Server(Vercel)</td>
   </tr>
 </table>
-
+</br>
 
 
 ### Dependencies:
