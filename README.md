@@ -109,6 +109,20 @@ This project is a Matrimony platform using the powerful MERN stack (MongoDB, Exp
    ```bash
    git clone https://github.com/Chitra35006/A-12-Perfect-Pair-Client.git
    cd A-12-Perfect-Pair-Client
+   npm install
+# or
+yarn install
+VITE_apiKey=your_api_key
+VITE_authDomain=your_auth_domain
+VITE_projectId=your_project_id
+VITE_storageBucket=your_storage_bucket
+VITE_messagingSenderId=your_messaging_sender_id
+VITE_appId=your_app_id
+VITE_Payment_Gateway_PK=your_payment_gateway_pk
+npm run dev
+# or
+yarn dev
+
  
 
 ## ::: Live Link :::
