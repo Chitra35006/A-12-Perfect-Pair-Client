@@ -103,15 +103,33 @@ This project is a Matrimony platform using the powerful MERN stack (MongoDB, Exp
 - tailwindcss-animate: ^1.0.7  
 
 
-## 🛠 Setup Instructions
+# 🛠 Setup Instructions
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/Chitra35006/A-12-Perfect-Pair-Client.git
-   cd A-12-Perfect-Pair-Client
-   npm install
-# or
+Follow these steps to clone the repository, install dependencies, and run the project on your local machine.
+
+## 1. **Clone the Repository**
+
+Start by cloning the repository to your local machine and navigating into the project directory:
+
+```bash
+git clone https://github.com/Chitra35006/A-12-Perfect-Pair-Client.git
+cd A-12-Perfect-Pair-Client
+
+Install the necessary dependencies using your preferred package manager (npm or yarn):
+
+# Using npm
+```bash
+npm install
+
+# Or using yarn
+```bash
 yarn install
+ Create a .env file in the root directory of the project:
+```bash
+touch .env
+d the following variables to your .env file:
+
+env
 VITE_apiKey=your_api_key
 VITE_authDomain=your_auth_domain
 VITE_projectId=your_project_id
@@ -119,10 +137,21 @@ VITE_storageBucket=your_storage_bucket
 VITE_messagingSenderId=your_messaging_sender_id
 VITE_appId=your_app_id
 VITE_Payment_Gateway_PK=your_payment_gateway_pk
-npm run dev
-# or
-yarn dev
 
+4. Run the Application
+You're all set to run the application locally.
+
+bash
+# Using npm
+npm run dev
+
+# Or using yarn
+yarn
+
+5. Access the Application
+Open your web browser and navigate to:
+
+http://localhost:3000
  
 
 ## ::: Live Link :::
