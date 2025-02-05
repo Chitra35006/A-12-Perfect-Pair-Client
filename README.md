@@ -32,72 +32,75 @@ This project is a Matrimony platform using the powerful MERN stack (MongoDB, Exp
 
 <h3 align="left">::: Technologies Used :::</h3>
 
-<table align="left" width="100%">
-  <tr>
-    <th>Category</th>
-    <th>Technologies</th>
-  </tr>
-  <tr>
-    <td>Frontend</td>
-    <td>React.js, TailwindCSS, AntDesign</td>
-  </tr>
-  <tr>
-    <td>Backend</td>
-    <td>Node.js, Express.js</td>
-  </tr>
-  <tr>
-    <td>Database</td>
-    <td>MongoDB</td>
-  </tr>
-  <tr>
-    <td>Authentication</td>
-    <td>Firebase Authentication</td>
-  </tr>
-  <tr>
-    <td>Hosting</td>
-    <td>Client (Firebase), Server (Vercel)</td>
-  </tr>
-</table>
-<div style="clear:both;"></div>
-### Dependencies:
-- @ant-design/icons: ^5.5.2
-- @ant-design/plots: ^2.3.3
-- @emotion/react: ^11.14.0
-- @emotion/styled: ^11.14.0
-- @mui/icons-material: ^6.4.0
-- @mui/material: ^6.4.0
-- @react-icons/all-files: ^4.1.0
-- @stripe/react-stripe-js: ^3.1.1
-- @stripe/stripe-js: ^5.5.0
-- @tanstack/react-query: ^5.64.2
-- animate.css: ^4.1.1
-- animate.css-react: ^1.1.0
-- antd: ^5.23.1
-- axios: ^1.7.9
-- clsx: ^2.1.1
-- date-fns: ^4.1.0
-- dayjs: ^1.11.13
-- firebase: ^11.2.0
-- localforage: ^1.10.0
-- lottie-react: ^2.4.0
-- match-sorter: ^8.0.0
-- moment: ^2.30.1
-- moment-timezone: ^0.5.46
-- motion: ^11.18.2
-- react: ^18.3.1
-- react-datepicker: ^7.6.0
-- react-dom: ^18.3.1
-- react-gradient-text: ^0.1.0
-- react-helmet: ^6.1.0
-- react-hook-form: ^7.54.2
-- react-icons: ^5.4.0
-- react-moment: ^1.1.3
-- react-router-dom: ^7.1.3
-- react-select: ^5.9.0
-- sort-by: ^1.2.0
-- sweetalert2: ^11.15.10
-- swiper: ^11.2.1
-- tailwindcss-animate: ^1.0.7
+<div style="display: block; width: 100%; margin-bottom: 20px;">
+  <table width="100%" style="border-collapse: collapse;">
+    <tr>
+      <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Category</th>
+      <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Technologies</th>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ddd; padding: 8px;">Frontend</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">React.js, TailwindCSS, AntDesign</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ddd; padding: 8px;">Backend</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">Node.js, Express.js</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ddd; padding: 8px;">Database</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">MongoDB</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ddd; padding: 8px;">Authentication</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">Firebase Authentication</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ddd; padding: 8px;">Hosting</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">Client (Firebase), Server (Vercel)</td>
+    </tr>
+  </table>
+</div>
+
+<h3 align="left">::: Dependencies :::</h3>
+
+- @ant-design/icons: ^5.5.2  
+- @ant-design/plots: ^2.3.3  
+- @emotion/react: ^11.14.0  
+- @emotion/styled: ^11.14.0  
+- @mui/icons-material: ^6.4.0  
+- @mui/material: ^6.4.0  
+- @react-icons/all-files: ^4.1.0  
+- @stripe/react-stripe-js: ^3.1.1  
+- @stripe/stripe-js: ^5.5.0  
+- @tanstack/react-query: ^5.64.2  
+- animate.css: ^4.1.1  
+- animate.css-react: ^1.1.0  
+- antd: ^5.23.1  
+- axios: ^1.7.9  
+- clsx: ^2.1.1  
+- date-fns: ^4.1.0  
+- dayjs: ^1.11.13  
+- firebase: ^11.2.0  
+- localforage: ^1.10.0  
+- lottie-react: ^2.4.0  
+- match-sorter: ^8.0.0  
+- moment: ^2.30.1  
+- moment-timezone: ^0.5.46  
+- motion: ^11.18.2  
+- react: ^18.3.1  
+- react-datepicker: ^7.6.0  
+- react-dom: ^18.3.1  
+- react-gradient-text: ^0.1.0  
+- react-helmet: ^6.1.0  
+- react-hook-form: ^7.54.2  
+- react-icons: ^5.4.0  
+- react-moment: ^1.1.3  
+- react-router-dom: ^7.1.3  
+- react-select: ^5.9.0  
+- sort-by: ^1.2.0  
+- sweetalert2: ^11.15.10  
+- swiper: ^11.2.1  
+- tailwindcss-animate: ^1.0.7  
 
 
 
