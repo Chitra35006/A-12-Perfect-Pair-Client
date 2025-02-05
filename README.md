@@ -102,6 +102,8 @@ This project is a Matrimony platform using the powerful MERN stack (MongoDB, Exp
 - swiper: ^11.2.1  
 - tailwindcss-animate: ^1.0.7  
 
+## ::: Live Link :::
+ https://a-12-perfect-pair.web.app
 
 # 🛠 Setup Instructions
 
@@ -151,8 +153,7 @@ yarn
 5. Access the Application
 Open your web browser and navigate to:
 
-http://localhost:3000
+http://localhost:5173
+
  
 
-## ::: Live Link :::
- https://a-12-perfect-pair.web.app
