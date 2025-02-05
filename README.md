@@ -1,6 +1,6 @@
  # Project Name: Perfect Pair [ A Matrimony Platform ]
  <div align="center">
-  <img height="400" width="100%" src="https://github.com/Chitra35006/5_practice/blob/7b7ec840d4041c8fb9027636d689a1d6f2f1eb08/pp.png" />
+  <img height="500" width="100%" src="https://github.com/Chitra35006/5_practice/blob/7b7ec840d4041c8fb9027636d689a1d6f2f1eb08/pp.png" />
 </div>
 
 ## :::Description:::
