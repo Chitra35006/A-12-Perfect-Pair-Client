@@ -103,7 +103,13 @@ This project is a Matrimony platform using the powerful MERN stack (MongoDB, Exp
 - tailwindcss-animate: ^1.0.7  
 
 
+## 🛠 Setup Instructions
 
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Chitra35006/A-12-Perfect-Pair-Client.git
+   cd A-12-Perfect-Pair-Client
+ 
 
 ## ::: Live Link :::
  https://a-12-perfect-pair.web.app
