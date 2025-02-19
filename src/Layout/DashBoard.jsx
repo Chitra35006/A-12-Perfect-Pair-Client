@@ -108,6 +108,14 @@ const DashBoard = () => {
         >
           {
             isAdmin ?<>
+          
+          <li className="flex items-center space-x-2">
+            <NavLink className={({ isActive }) => 
+    isActive ? 'flex items-center space-x-2 text-indigo-900 font-bold bg-lime-300 px-4 py-2 rounded-lg' : 'flex items-center space-x-2 text-green-900'
+  } to="/dashboard/AdminProfile">
+              <UserOutlined className="mr-2" />Admin Profile
+            </NavLink>
+          </li>
             
           <li className="flex items-center space-x-2">
             <NavLink className={({ isActive }) => 

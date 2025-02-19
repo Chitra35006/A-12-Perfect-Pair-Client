@@ -26,6 +26,7 @@ import Payment from "../Pages/DashBoard/UserDashboard/Payment";
 import Four04Page from "../Pages/Four04Page/Four04Page";
 import AdminRoute from "./AdminRoute";
 import UserProfile from "../Pages/DashBoard/UserDashboard/UserProfile";
+import AdminProfile from "../Pages/DashBoard/AdminDashBoard/AdminProfile";
   export const router = createBrowserRouter([
     {
       path: "/",
@@ -86,6 +87,10 @@ import UserProfile from "../Pages/DashBoard/UserDashboard/UserProfile";
     {
       path:"ssStory",
       element:<AdminRoute><SuccessStory></SuccessStory></AdminRoute>
+    },
+    {
+      path:"adminProfile",
+      element:<AdminRoute><AdminProfile></AdminProfile></AdminRoute>
     },
     {
       path:"addEditBio",

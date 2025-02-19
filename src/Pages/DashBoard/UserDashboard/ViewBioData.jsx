@@ -113,31 +113,32 @@ const ViewBioData = () => {
     <title>Perfect Pair | {name ? `${name}'s Bio` : "View Bio Data"}</title>
 </Helmet>
       {/* Top Section */}
-      <div className="flex justify-between md:px-20 px-10 bg-indigo-100 py-4 rounded-bl-[80px] rounded-tr-[40px] items-center border-b-4 border-r-4 border-x-4 border-teal-500 pb-4 shadow-xl">
-        {/* Left Section */}
-        <div className="space-y-2">
-          <h1 className="md:text-2xl font-bold text-gray-800">{name || 'Unknown'}</h1>
-          <p className="md:text-xl text-xs text-gray-700 font-medium"><span className='text-teal-600 font-bold'>Father:</span> {fatherName || 'N/A'}</p>
-          <p className="md:text-xl text-xs text-gray-700 font-medium"><span className='text-teal-600 font-bold'>Mother:</span> {motherName || 'N/A'}</p>
-        </div>
-        {/* Right Section (Photo) */}
-        <div>
-        <div>
-      <Avatar
-        src={photo || 'https://via.placeholder.com/150'}
-        alt={name || 'User'}
-        sx={{
-          width: { xs: 64, sm: 96, md: 128 }, // Adjust width based on screen size
-          height: { xs: 64, sm: 96, md: 128 }, // Adjust height based on screen size
-          border: '2px solid #14b8a6', // Lime border color
-          boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)', // Shadow effect
-        }}
-      />
-    </div>
-    </div>
+<div className="flex justify-between md:px-20 px-10 bg-indigo-100 dark:bg-gray-900 py-4 rounded-bl-[80px] rounded-tr-[40px] items-center border-b-4 border-r-4 border-x-4 border-teal-500 dark:border-teal-400 pb-4 shadow-xl text-gray-900 dark:text-white">
+  {/* Left Section */}
+  <div className="space-y-2">
+    <h1 className="md:text-2xl font-bold text-gray-800 dark:text-gray-200">{name || 'Unknown'}</h1>
+    <p className="md:text-xl text-xs text-gray-700 dark:text-gray-300 font-medium">
+      <span className="text-teal-600 dark:text-teal-400 font-bold">Father:</span> {fatherName || 'N/A'}
+    </p>
+    <p className="md:text-xl text-xs text-gray-700 dark:text-gray-300 font-medium">
+      <span className="text-teal-600 dark:text-teal-400 font-bold">Mother:</span> {motherName || 'N/A'}
+    </p>
+  </div>
+  {/* Right Section (Photo) */}
+  <div>
+    <Avatar
+      src={photo || 'https://via.placeholder.com/150'}
+      alt={name || 'User'}
+      sx={{
+        width: { xs: 64, sm: 96, md: 128 }, // Adjust width based on screen size
+        height: { xs: 64, sm: 96, md: 128 }, // Adjust height based on screen size
+        border: '2px solid #14b8a6', // Teal border color
+        boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)', // Light shadow effect
+      }}
+    />
+  </div>
+</div>
 
-
-      </div>
       <div className="flex justify-end my-4 ">
       <Button
         onClick={() => handleToPremium(email, name)} // Pass the user email and name here

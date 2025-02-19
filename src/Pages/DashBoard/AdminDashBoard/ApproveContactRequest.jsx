@@ -4,11 +4,13 @@ import usePayments from '../../../hooks/usePayments';
 import { Table, Button, Spin } from "antd";
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
+import useTheme from '../../../hooks/useTheme';
 
 const ApproveContactRequest = () => {
   const [allPaymentData, refetch] = usePayments();
   const [localData, setLocalData] = useState([]); // Local state for payments
   const axiosSecure = useAxiosSecure();
+  const {theme} = useTheme();
 
   useEffect(() => {
     // Sync local state with the data from React Query
@@ -103,7 +105,7 @@ const ApproveContactRequest = () => {
       </Helmet>
 
       {/* Header */}
-      <h1 className="text-xl font-bold mb-4 text-indigo-900 border-double border-y-2 md:w-1/4 w-2/4 text-center border-lime-400 py-1">
+      <h1 className={`text-xl font-bold mb-4 ${theme === "dark" ? "text-teal-500":"text-indigo-900"} border-double border-y-2 md:w-1/4 w-2/4 text-center border-lime-400 py-1`}>
         Approve Contact Request
       </h1>
 

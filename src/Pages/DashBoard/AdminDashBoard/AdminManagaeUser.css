@@ -1,0 +1,22 @@
+/* Dark mode row and text styles */
+.dark-row {
+    background-color: #0f172a;
+    color: #fff;
+  }
+  
+  /* Light mode row and text styles */
+  .light-row {
+    background-color: #ffffff;
+    color: #000;
+  }
+  
+  /* Dark mode text styles for column titles */
+  .dark-text {
+    color: #fff;
+  }
+  
+  /* Light mode text styles for column titles */
+  .light-text {
+    color: #000;
+  }
+  

@@ -3,11 +3,14 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import { Table, Button, Input } from "antd";
 import Swal from "sweetalert2";
+import useTheme from "../../../hooks/useTheme";
+import './AdminManagaeUser.css';
 
 const AdminManageUser = () => {
+  const { theme } = useTheme();
   const axiosSecure = useAxiosSecure();
   const [searchTerm, setSearchTerm] = useState("");
-  const [disableButtons, setDisableButtons] = useState(false); // Add disableButtons state
+  const [disableButtons, setDisableButtons] = useState(false);
 
   const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
@@ -24,7 +27,7 @@ const AdminManageUser = () => {
 
   const handleMakeAdmin = (userId, userName, currentRole) => {
     if (userId && currentRole !== "admin") {
-      setDisableButtons(true); // Disable both buttons when making the user admin
+      setDisableButtons(true);
       axiosSecure
         .patch(`/users/admin/${userId}`)
         .then((res) => {
@@ -46,13 +49,13 @@ const AdminManageUser = () => {
             text: error.message,
           });
         })
-        .finally(() => setDisableButtons(false)); // Re-enable buttons after refetch
+        .finally(() => setDisableButtons(false));
     }
   };
 
   const handleMakePremium = (userId, userName, currentRole) => {
     if (userId && currentRole !== "premium") {
-      setDisableButtons(true); // Disable both buttons when making the user premium
+      setDisableButtons(true);
       axiosSecure
         .patch(`/users/premium/${userId}`)
         .then((res) => {
@@ -60,7 +63,7 @@ const AdminManageUser = () => {
             Swal.fire({
               position: "top-end",
               icon: "success",
-              title: `${userName} now is a PREMIUM user!`,
+              title: `${userName} is now a PREMIUM user!`,
               showConfirmButton: false,
               timer: 1500,
             });
@@ -74,44 +77,79 @@ const AdminManageUser = () => {
             text: error.message,
           });
         })
-        .finally(() => setDisableButtons(false)); // Re-enable buttons after refetch
+        .finally(() => setDisableButtons(false));
     }
   };
 
   const columns = [
     {
-      title: "Name",
+      title: (
+        <span
+          style={{
+            color: theme === "dark" ? "#fff" : "#000", // Dark mode title color
+          }}
+        >
+          Name
+        </span>
+      ),
       dataIndex: "name",
       key: "name",
       align: "center",
-      render: (text) => <span className="font-bold text-indigo-900">{text}</span>,
+      render: (text) => (
+        <span
+          className={`font-bold ${theme === "dark" ? "text-white" : "text-indigo-900"}`}
+        >
+          {text}
+        </span>
+      ),
     },
     {
-      title: "Email",
+      title: (
+        <span
+          style={{
+            color: theme === "dark" ? "#fff" : "#000", // Dark mode title color
+          }}
+        >
+          Email
+        </span>
+      ),
       dataIndex: "email",
       key: "email",
       align: "center",
+      render: (text) => (
+        <span
+          className={`${theme === "dark" ? "text-white" : "text-indigo-900"}`}
+        >
+          {text}
+        </span>
+      ),
     },
     {
-      title: "Actions",
+      title: (
+        <span
+          style={{
+            color: theme === "dark" ? "#fff" : "#000", // Dark mode title color
+          }}
+        >
+          Actions
+        </span>
+      ),
       key: "actions",
       render: (_, record) => (
         <div style={{ display: "flex", gap: "10px", justifyContent: "center" }}>
-          <Button className="bg-indigo-900"
+          <Button
+            className="bg-indigo-900"
             type="primary"
-            onClick={() =>
-              handleMakeAdmin(record._id, record.name, record.role)
-            }
-            disabled={record.role === "admin" || disableButtons} // Disable if user is admin or if buttons are globally disabled
+            onClick={() => handleMakeAdmin(record._id, record.name, record.role)}
+            disabled={record.role === "admin" || disableButtons}
           >
             {record.role === "admin" ? "Admin" : "Make Admin"}
           </Button>
-          <Button className="border-lime-400"
+          <Button
+            className="border-lime-400"
             type="default"
-            onClick={() =>
-              handleMakePremium(record._id, record.name, record.role)
-            }
-            disabled={record.role === "premium" || disableButtons} // Disable if user is premium or if buttons are globally disabled
+            onClick={() => handleMakePremium(record._id, record.name, record.role)}
+            disabled={record.role === "premium" || disableButtons}
           >
             Make Premium
           </Button>
@@ -119,6 +157,7 @@ const AdminManageUser = () => {
       ),
     },
   ];
+  
 
   return (
     <div className="p-5">
@@ -142,14 +181,27 @@ const AdminManageUser = () => {
 
       <Table
         dataSource={filteredUsers}
-        columns={columns}
+        columns={columns.map((col) => ({
+          ...col,
+          title: (
+            <span
+              className={theme === "dark" ? "dark-text" : "light-text"}
+            >
+              {col.title}
+            </span>
+          ),
+        }))}
         rowKey={(record) => record._id}
         pagination={{
-          pageSize: 8, // Adjust as needed
+          pageSize: 8,
           showSizeChanger: true,
         }}
         bordered
-        style={{ backgroundColor: "#f9f9f9" }}
+        rowClassName={(record, index) => (theme === "dark" ? "dark-row" : "light-row")}
+        style={{
+          backgroundColor: theme === "dark" ? "#0f172a" : "#ffffff",
+          color: theme === "dark" ? "#fff" : "#000",
+        }}
       />
     </div>
   );
