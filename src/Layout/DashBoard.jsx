@@ -10,17 +10,20 @@ import { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { FiRepeat } from "react-icons/fi";
-import { Button } from "@mui/material";
+
 import useAuth from "../hooks/useAuth";
 import { motion, MotionConfig } from "motion/react";
 
 import { UserOutlined } from "@ant-design/icons";
 import { Avatar } from '@mui/material';
 import useAdmin from "../hooks/useAdmin";
+import useTheme from "../hooks/useTheme";
+
 
 
 
 const DashBoard = () => {
+  const {theme} = useTheme();
   
  const [isAdmin] = useAdmin();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false); // State to manage sidebar visibility
@@ -54,7 +57,7 @@ const DashBoard = () => {
 
         {/* Sidebar */}
         <div 
-          className={`fixed top-0 left-0 z-10 w-64 min-h-screen bg-[linear-gradient(25deg,#99f6e4_5%,_white_40%,_white_40%,#d9f99d_100%)] border-b-4 rounded-r-[80px] rounded-bl-[80px] rounded-br-[30px] border-r-4 border-[#14b8a6] 
+          className={`fixed top-0 left-0 z-10 w-64 min-h-screen ${theme === "dark"?"bg-slate-900":"bg-[linear-gradient(25deg,#99f6e4_5%,_white_40%,_white_40%,#d9f99d_100%)]"} border-b-4 rounded-r-[80px] rounded-bl-[80px] rounded-br-[30px] border-r-4 border-[#14b8a6] 
             ${isSidebarOpen ? 'block' : 'hidden'} md:block`}
         >
 
@@ -94,7 +97,10 @@ const DashBoard = () => {
 
 
 
-<p className="text-center  text-indigo-800 my-2 font-semibold">{user ? user.displayName : "Guest"}</p>
+<p className={`text-center my-2 font-semibold ${theme === "dark" ? "text-teal-500" : "text-indigo-800"}`}>
+  {user ? user.displayName : "Guest"}
+</p>
+
 
            {/* Navigation Links */}
         <ul
@@ -145,6 +151,13 @@ const DashBoard = () => {
               <li className="flex items-center space-x-2">
             <NavLink className={({ isActive }) => 
     isActive ? 'flex items-center space-x-2 text-indigo-900 font-bold bg-lime-300 px-4 py-2 rounded-lg' : 'flex items-center space-x-2 text-green-900'
+  } to="/dashboard/userProfile">
+              <UserOutlined className="mr-2" />My Profile
+            </NavLink>
+          </li>
+              <li className="flex items-center space-x-2">
+            <NavLink className={({ isActive }) => 
+    isActive ? 'flex items-center space-x-2 text-indigo-900 font-bold bg-lime-300 px-4 py-2 rounded-lg' : 'flex items-center space-x-2 text-green-900'
   } to="/dashboard/addEditBio">
               <PiReadCvLogoFill className="mr-2" /> Edit Biodata
             </NavLink>
@@ -189,9 +202,16 @@ const DashBoard = () => {
             </NavLink>
           </li>
           <li>
-          <Button onClick={handleLogout} className="text white  hover:text-lime-300 bg-gradient-to-r from-indigo-900 via-indigo-900 to-indigo-900" type="submit" variant="contained" color="primary">
-              LOGOUT
-            </Button>
+          <button
+  onClick={handleLogout}
+  className={`text-white rounded-md px-10 py-2 font-bold hover:bg-lime-500 ${theme === "dark" ? "bg-teal-600 hover:text-indigo-900 " : " bg-indigo-900 hover:text-white"}`}
+  type="submit"
+  
+  
+>
+  LOGOUT
+</button>
+
           </li>
     
         </ul>

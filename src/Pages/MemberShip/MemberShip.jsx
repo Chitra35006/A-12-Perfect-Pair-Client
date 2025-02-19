@@ -1,11 +1,40 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card } from "antd";
 import { UserAddOutlined, StarOutlined, CrownFilled } from "@ant-design/icons";
 import useTheme from '../../hooks/useTheme';
 import PrimaryButton from '../Buttons/PrimaryButton';
+import { motion } from 'framer-motion'; // Import motion from framer-motion
 
 const MemberShip = () => {
     const { theme } = useTheme();
+    const [inView, setInView] = useState(false);
+
+    const handleScroll = () => {
+        const rect = document.getElementById('membership-cards')?.getBoundingClientRect();
+        if (rect && rect.top <= window.innerHeight && rect.bottom >= 0) {
+            setInView(true);
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+        handleScroll(); // Check on mount
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
+    const motionVariants = {
+        initial: { opacity: 0, x: 100 }, // Start off-screen to the right
+        animate: {
+            opacity: inView ? 1 : 0,
+            x: inView ? 0 : 100, // Slide from right to left when in view
+        },
+        transition: {
+            duration: 0.6,
+            ease: "easeOut",
+        },
+    };
 
     return (
         <div className='my-20 mx-10'>
@@ -17,7 +46,14 @@ const MemberShip = () => {
                     </p>
                 </div>
 
-                <div className="flex flex-wrap justify-center gap-6">
+                <motion.div
+                    id="membership-cards"
+                    className="flex flex-wrap justify-center gap-6"
+                    variants={motionVariants}
+                    initial="initial"
+                    animate="animate"
+                    transition={motionVariants.transition}
+                >
                     {/* Free Plan Card */}
                     <Card
                         className={`w-full sm:w-80 ${theme === "dark" ? "bg-gray-800 text-white" : "bg-white text-gray-800"} shadow-lg rounded-lg border ${theme === "dark" ? "border-gray-700" : "border-gray-300"}`}
@@ -30,7 +66,7 @@ const MemberShip = () => {
                                 <li>Basic matching algorithm</li>
                                 <li>Access to limited profiles</li>
                             </ul>
-                            <div className="mt-auto"> {/* Ensure the button is pushed to the bottom */}
+                            <div className="mt-auto">
                                 <PrimaryButton textSize="text-base" text="Sign Up Free" />
                             </div>
                         </div>
@@ -73,7 +109,7 @@ const MemberShip = () => {
                             </div>
                         </div>
                     </Card>
-                </div>
+                </motion.div>
             </section>
         </div>
     );

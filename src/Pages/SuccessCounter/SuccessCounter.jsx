@@ -4,6 +4,7 @@ import useMarriageList from '../../hooks/useMarriageList';
 import { Card, Row, Col } from 'antd';
 import { FaMale, FaFemale, FaUsers } from 'react-icons/fa';
 import { useTheme } from '../../Provider/ThemeContext';
+import { motion } from 'framer-motion';
 
 const SuccessCounter = () => {
     const [biodatas] = useAllBioData();
@@ -68,29 +69,43 @@ const SuccessCounter = () => {
             <Row gutter={[16, 16]} justify="center">
                 {cardData.map((card, index) => (
                     <Col xs={24} sm={12} md={8} lg={6} key={index}>
-                        <Card
-                            hoverable
+                        <motion.div
                             className={`custom-card shadow-lg border-2 rounded-xl transition duration-300 hover:border-white 
                                 ${card.borderColor}`} // Dynamic border color
-                            bodyStyle={{
-                                textAlign: 'center',
-                                padding: '16px',
-                                background: card.bgGradient,
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'space-between',
-                                borderRadius: '10px',
-                                color: '#fff',
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{
+                                opacity: {
+                                    duration: 2, // 2 seconds for each fade-in/out
+                                    ease: "easeInOut",
+                                    repeat: Infinity, // Continuously repeat the fade transition
+                                    repeatType: "reverse", // Reverse the fade-out to fade back in
+                                },
                             }}
                         >
-                            <div style={{ flex: '1', display: 'flex', justifyContent: 'center' }}>
-                                {card.icon}
-                            </div>
-                            <div className='md:text-3xl text-xl' style={{ flex: '2', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                                <h4>{card.count}</h4>
-                                <h3>{card.title}</h3>
-                            </div>
-                        </Card>
+                            <Card
+                                hoverable
+                                bodyStyle={{
+                                    textAlign: 'center',
+                                    padding: '16px',
+                                    background: card.bgGradient,
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'space-between',
+                                    borderRadius: '10px',
+                                    color: '#fff',
+                                }}
+                            >
+                                <div style={{ flex: '1', display: 'flex', justifyContent: 'center' }}>
+                                    {card.icon}
+                                </div>
+                                <div className='md:text-3xl text-xl' style={{ flex: '2', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                                    <h4>{card.count}</h4>
+                                    <h3>{card.title}</h3>
+                                </div>
+                            </Card>
+                        </motion.div>
                     </Col>
                 ))}
             </Row>

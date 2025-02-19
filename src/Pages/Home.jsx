@@ -6,6 +6,7 @@ import SuccessCounter from "./SuccessCounter/SuccessCounter";
 import PreimumUsers from "./PremimumUsers/PreimumUsers";
 import MemberShip from "./MemberShip/MemberShip";
 import CommunityStandards from "./CommunityStandards/CommunityStandards";
+import Gallery from "./Gallery/Gallery";
 
 
 
@@ -17,6 +18,7 @@ const Home = () => {
             <PreimumUsers></PreimumUsers>
            <Featured></Featured>
            <MemberShip></MemberShip>
+           <Gallery></Gallery>
            <CommunityStandards></CommunityStandards>
            <SuccessCounter></SuccessCounter>
            <SuccessStory></SuccessStory>

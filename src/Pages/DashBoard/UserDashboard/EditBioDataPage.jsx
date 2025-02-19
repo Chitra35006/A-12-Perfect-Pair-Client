@@ -9,11 +9,13 @@ import { Helmet } from 'react-helmet';
 
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import useTheme from '../../../hooks/useTheme';
 
 
 
 const EditBioDataPage = () => {
   const{user} = useAuth();
+  const {theme} = useTheme();
   const navigate = useNavigate();
   const { userBioData } = useBioData();
   const axiosSecure = useAxiosSecure();
@@ -129,8 +131,8 @@ const EditBioDataPage = () => {
   return (
    <div>
     <Helmet><title>Perfect Pair || Edit Bio Data</title></Helmet>
-     <div className="bg-fixed min-h-screen bg-[linear-gradient(15deg,#99f6e4_25%,_white_20%,_white_40%,#f0fdf4_100%)]">
-    <div className="bg-[linear-gradient(25deg,#99f6e4_5%,_white_40%,_white_40%,#bef264_100%)] mx-4 mt-8 p-8 shadow-xl rounded-lg">
+     <div className={`bg-fixed min-h-screen ${theme === "dark"? "[linear-gradient(25deg,#3f6212_5%,_#1f2937_30%,_#1f2937_70%,_#065f46_100%)]":"bg-[linear-gradient(15deg,#99f6e4_25%,_white_20%,_white_40%,#f0fdf4_100%)]"}`}>
+    <div className={`${theme === "dark"?"bg-[linear-gradient(25deg,#3f6212_5%,_#1f2937_30%,_#1f2937_70%,_#065f46_100%)]":"bg-[linear-gradient(25deg,#99f6e4_5%,_white_40%,_white_40%,#bef264_100%)]"} mx-4 mt-8 p-8 shadow-xl rounded-lg`}>
       
        
        
@@ -555,7 +557,7 @@ const EditBioDataPage = () => {
               <div className="mt-6 flex justify-end">
                 <button
                   type="submit"
-                  className="bg-indigo-500 px-6 py-3 font-semibold rounded-md hover:bg-indigo-900 text-white transition"
+                  className={` px-6 py-3 font-semibold rounded-md  text-white transition ${theme ==="dark"?"hover:bg-lime-500 bg-teal-600":"hover:bg-indigo-900 bg-indigo-500"}`}
                 >
                   Update
                 </button>

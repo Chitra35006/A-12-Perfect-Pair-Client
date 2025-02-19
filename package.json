@@ -28,6 +28,7 @@
     "date-fns": "^4.1.0",
     "dayjs": "^1.11.13",
     "firebase": "^11.2.0",
+    "framer-motion": "^12.4.4",
     "localforage": "^1.10.0",
     "lottie-react": "^2.4.0",
     "match-sorter": "^8.0.0",

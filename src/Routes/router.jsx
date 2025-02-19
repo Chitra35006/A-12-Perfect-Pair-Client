@@ -25,6 +25,7 @@ import PrivateRoute from "./PrivateRoute";
 import Payment from "../Pages/DashBoard/UserDashboard/Payment";
 import Four04Page from "../Pages/Four04Page/Four04Page";
 import AdminRoute from "./AdminRoute";
+import UserProfile from "../Pages/DashBoard/UserDashboard/UserProfile";
   export const router = createBrowserRouter([
     {
       path: "/",
@@ -93,6 +94,10 @@ import AdminRoute from "./AdminRoute";
     {
       path:"viewBio",
       element:<ViewBioData></ViewBioData>
+    },
+    {
+      path:"userProfile",
+      element:<UserProfile></UserProfile>
     },
     {
       path:"myContactReq",

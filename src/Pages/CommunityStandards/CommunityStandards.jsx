@@ -39,7 +39,7 @@ const CommunityStandards = () => {
 
                     {/* Event Card 2 */}
                     <Card
-                        className={`w-full sm:w-80 shadow-lg rounded-lg border border-transparent ${theme === 'dark' ? 'bg-gradient-to-r from-slate-900 to-indigo-900' : 'bg-gradient-to-r from-yellow-400 to-yellow-600'} hover:scale-105 transform transition duration-300`}
+                        className={`w-full sm:w-80 shadow-lg rounded-lg border border-transparent ${theme === 'dark' ? 'bg-gradient-to-r from-slate-900 to-indigo-900' : 'bg-gradient-to-r from-lime-400 to-lime-600'} hover:scale-105 transform transition duration-300`}
                         title={
                             <h3 className={`text-2xl font-bold ${theme === 'dark' ? 'text-white' : 'text-white'} flex items-center space-x-2`}>
                                 <VideoCameraOutlined className="text-2xl" /> <span>Webinars</span>

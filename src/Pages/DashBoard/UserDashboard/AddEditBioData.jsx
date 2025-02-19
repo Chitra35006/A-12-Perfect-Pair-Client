@@ -73,8 +73,8 @@ const AddEditBioData = () => {
     <div>
       
     <Helmet><title>Perfect Pair || Add Bio Data</title></Helmet>
-      <div className="bg-fixed min-h-screen bg-[linear-gradient(15deg,#99f6e4_25%,_white_20%,_white_40%,#f0fdf4_100%)]">
-      <div className="bg-[linear-gradient(25deg,#99f6e4_5%,_white_40%,_white_40%,#bef264_100%)] mx-4 mt-8 p-8 shadow-xl rounded-lg">
+      <div className={`bg-fixed min-h-screen ${theme === "dark"?"bg-[linear-gradient(15deg,#99f6e4_25%,_white_20%,_white_40%,#f0fdf4_100%)]":"bg-[linear-gradient(15deg,#99f6e4_25%,_white_20%,_white_40%,#f0fdf4_100%)]"}`}>
+      <div className={`${theme === "dark"? "bg-[linear-gradient(25deg,#3f6212_5%,_#1f2937_30%,_#1f2937_70%,_#065f46_100%)]": "bg-[linear-gradient(25deg,#99f6e4_5%,_white_40%,_white_40%,#bef264_100%)]"} mx-4 mt-8 p-8 shadow-xl rounded-lg`}>
         
          
          
