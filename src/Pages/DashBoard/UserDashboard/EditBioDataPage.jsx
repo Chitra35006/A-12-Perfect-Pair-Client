@@ -136,7 +136,7 @@ const EditBioDataPage = () => {
       
        
        
-      <h1 className="text-xl font-bold mb-4 text-indigo-900 border-double border-y-2 md:w-1/4 w-2/4 text-center border-lime-400 py-1">Edit Bio Data</h1>
+      <h1 className={`text-xl font-bold mb-4 ${theme === "dark"? "text-teal-500":"text-indigo-900 "} border-double border-y-2 md:w-1/4 w-2/4 text-center border-lime-400 py-1`}>Edit Bio Data</h1>
       <form onSubmit={handleUpdateData}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                  {/* <<<<Biodata Type>>>[1] */}

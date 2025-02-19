@@ -31,3 +31,7 @@ body {
     background-color: #05831a; /* Default color */
     margin: 1rem 0; /* Optional spacing */
   }
+  /* Override Ant Design Table Row Hover Background */
+.ant-table-tbody > tr:hover {
+  background-color: #bef264 !important; /* Tailwind's bg-lime-300 */
+}
