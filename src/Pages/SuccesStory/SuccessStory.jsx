@@ -40,7 +40,7 @@ const SuccessStory = () => {
     };
 
     return (
-        <div className={`${theme === "light"? "bg-gray-100":"bg-gray-700"} py-10`}>
+        <div className={`${theme === "light"? "bg-gray-100":"bg-gray-950"} py-10`}>
             <Section_Heading_ customClass="md:text-3xl" heading={"Success story"}></Section_Heading_>
             <div className="success-story-slider relative w-11/12  mx-auto mt-10 mb-20">
             

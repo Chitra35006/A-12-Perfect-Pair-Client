@@ -1,18 +1,19 @@
-import { useTheme } from "@emotion/react";
+
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 import logo from "../../assets/logo.png";
+import useTheme from "../../hooks/useTheme";
 
 
 const Footer = () => {
   const { theme } = useTheme();
   return (
-    <div className={`shadow-xl  border-none md:border-double rounded-md md:border-cyan-700 md:border-x-2 container mx-auto px-6 py-10  ${theme ==="light" ? "bg-slate-600" : "bg-[linear-gradient(25deg,#99f6e4_5%,_white_40%,_white_40%,#bef264_100%)]"}`}>
+    <div className={`shadow-xl  border-none md:border-double rounded-md md:border-cyan-700 md:border-x-2 container mx-auto px-6 py-10  ${theme ==="dark" ? "bg-slate-950" : "bg-[linear-gradient(25deg,#99f6e4_5%,_white_40%,_white_40%,#bef264_100%)]"}`}>
       <div className="flex flex-col md:flex-row items-center justify-center mb-4">
         {/* Brand Section */}
         <div className="text-xl font-bold">
           <a href="/" className="text-gray-800 flex items-center text-2xl">
             <img className="w-10 mr-2 animate-pulse" src={logo} alt="Logo" />{" "}
-            <h1 className={`${theme === "light"? "text-gray-300":"text-black"}`}>
+            <h1 className={`${theme === "dark"? "text-gray-300":"text-black"}`}>
               <span className="text-lime-500">P</span>erfect{" "}
               <span className="text-lime-500">P</span>air
             </h1>
