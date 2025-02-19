@@ -96,7 +96,7 @@ const NavBar = () => {
       <Layout>
         <Header
           className={`${
-            theme === "dark" ? "bg-slate-800" : "bg-white"
+            theme === "dark" ? "bg-slate-900" : "bg-white"
           } shadow-md fixed top-0 left-0 w-full z-50`}
         >
           <div className="flex justify-between items-center h-16">

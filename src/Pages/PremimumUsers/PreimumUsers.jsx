@@ -3,8 +3,10 @@ import useAllBioData from '../../hooks/useAllBioData';
 import Section_Heading1 from '../Heading/Section_Heading1';
 import PremiumUserCard from './PremiumUserCard';
 import { Select } from 'antd';
+import useTheme from '../../hooks/useTheme';
 
 const PreimumUsers = () => {
+    const {theme} = useTheme();
     const { Option } = Select;
     const [biodatas, setBiodatas] = useState([]);
     const [sortOrder, setSortOrder] = useState('asc'); // Default to ascending
@@ -48,7 +50,9 @@ const PreimumUsers = () => {
     // console.log("Premium Biodatas: ", premiumBiodatas);
 
     return (
-        <div className='my-20 w-11/12 mx-auto bg-slate-100 px-4'>
+        <div className={`my-20 w-11/12 mx-auto px-4 pb-6 rounded-xl ${
+            theme === "dark" ? "bg-slate-900" : "bg-slate-100 "
+          }`}>
             <Section_Heading1 heading="Premium Users"></Section_Heading1>
 
             {/* Sorting Dropdown on the Right */}
@@ -64,7 +68,9 @@ const PreimumUsers = () => {
                 </Select>
             </div>
 
-            <div className='grid md:grid-cols-3 grid-cols-1 gap-4'>
+            <div className={`grid md:grid-cols-3 grid-cols-1 gap-4 ${
+            theme === "dark" ? "bg-slate-900" : "bg-white"
+          }`}>
                 {
                     sortedBiodatas.length > 0 ? (
                         sortedBiodatas.map((premiumBiodata) => (

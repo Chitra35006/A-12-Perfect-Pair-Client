@@ -4,10 +4,12 @@ import { Row, Col, Slider, Select, Pagination } from "antd";
 import useAllBioData from "../../hooks/useAllBioData";
 import Section_Heading1 from "../Heading/Section_Heading1";
 import BioDataCard from "./BioDataCard";
+import useTheme from "../../hooks/useTheme";
 
 const { Option } = Select;
 
 const BioData = () => {
+  const {theme} = useTheme();
   const [biodatas] = useAllBioData();
   const [filters, setFilters] = useState({
     ageRange: [18, 60],
@@ -60,7 +62,9 @@ const BioData = () => {
   const endItem = Math.min(currentPage * pageSize, filteredData.length);
 
   return (
-    <div className="w-full mx-auto bg-gray-50 p-4 my-10">
+    <div className={`w-full mx-auto  p-4 my-10 ${
+      theme === "dark" ? "bg-slate-950" : "bg-gray-50"
+    }`}>
       <Helmet>
         <title>Perfect Pair | Biodata</title>
       </Helmet>
@@ -68,59 +72,74 @@ const BioData = () => {
       <Row gutter={[16, 16]}>
         {/* Filter Section on the Left (Fixed) */}
         <Col xs={24} md={6} style={{ position: "sticky", top: "20px" }}>
-          <div
-            style={{
-              padding: "20px",
-              borderRadius: "8px",
-              border: "1px solid #d3d3d3",
-              boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
-              backgroundColor: "#f9f9f9",
-              height: "calc(100vh - 100px)",
-              overflowY: "auto",
-            }}
-          >
-            <h4>Filters</h4>
-            <div style={{ marginBottom: "20px" }}>
-              <label>Age Range:</label>
-              <Slider
-                range
-                defaultValue={[18, 40]}
-                min={18}
-                max={60}
-                onChange={(value) => handleFilterChange("ageRange", value)}
-              />
-            </div>
-            <div style={{ marginBottom: "20px" }}>
-              <label>Gender:</label>
-              <Select
-                placeholder="Select Gender"
-                style={{ width: "100%" }}
-                onChange={(value) => handleFilterChange("gender", value)}
-                allowClear
-              >
-                <Option value="Male">Male</Option>
-                <Option value="Female">Female</Option>
-              </Select>
-            </div>
-            <div>
-              <label>Permanent Division:</label>
-              <Select
-                placeholder="Select Division"
-                style={{ width: "100%" }}
-                onChange={(value) => handleFilterChange("permanentDivision", value || "")}
-                allowClear
-              >
-                <option value="Dhaka">Dhaka</option>
-                <option value="Chittagong">Chittagong</option>
-                <option value="Rangpur">Rangpur</option>
-                <option value="Barishal">Barishal</option>
-                <option value="Khulna">Khulna</option>
-                <option value="Mymensingh">Mymensingh</option>
-                <option value="Sylhet">Sylhet</option>
-              </Select>
-            </div>
-          </div>
-        </Col>
+  <div
+    style={{
+      padding: "20px",
+      borderRadius: "8px",
+      border: "1px solid",
+      borderColor: document.documentElement.classList.contains("dark") ? "#444" : "#d3d3d3",
+      boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
+      backgroundColor: document.documentElement.classList.contains("dark") ? "#1e293b" : "#f9f9f9",
+      color: document.documentElement.classList.contains("dark") ? "white" : "black",
+      height: "calc(100vh - 100px)",
+      overflowY: "auto",
+    }}
+  >
+    <h4>Filters</h4>
+    <div style={{ marginBottom: "20px" }}>
+      <label>Age Range:</label>
+      <Slider
+        range
+        defaultValue={[18, 40]}
+        min={18}
+        max={60}
+        onChange={(value) => handleFilterChange("ageRange", value)}
+      />
+    </div>
+    <div style={{ marginBottom: "20px" }}>
+      <label>Gender:</label>
+      <Select
+        placeholder="Select Gender"
+        style={{
+          width: "100%",
+          backgroundColor: document.documentElement.classList.contains("dark") ? "#334155" : "white",
+          color: document.documentElement.classList.contains("dark") ? "white" : "black",
+          border: "1px solid",
+          borderColor: document.documentElement.classList.contains("dark") ? "#555" : "#d3d3d3",
+        }}
+        onChange={(value) => handleFilterChange("gender", value)}
+        allowClear
+      >
+        <Option value="Male">Male</Option>
+        <Option value="Female">Female</Option>
+      </Select>
+    </div>
+    <div>
+      <label>Permanent Division:</label>
+      <Select
+        placeholder="Select Division"
+        style={{
+          width: "100%",
+          backgroundColor: document.documentElement.classList.contains("dark") ? "#334155" : "white",
+          color: document.documentElement.classList.contains("dark") ? "white" : "black",
+          border: "1px solid",
+          borderColor: document.documentElement.classList.contains("dark") ? "#555" : "#d3d3d3",
+        }}
+        onChange={(value) => handleFilterChange("permanentDivision", value || "")}
+        allowClear
+      >
+        <option value="Dhaka">Dhaka</option>
+        <option value="Chittagong">Chittagong</option>
+        <option value="Rangpur">Rangpur</option>
+        <option value="Barishal">Barishal</option>
+        <option value="Khulna">Khulna</option>
+        <option value="Mymensingh">Mymensingh</option>
+        <option value="Sylhet">Sylhet</option>
+      </Select>
+    </div>
+  </div>
+</Col>
+
 
         {/* Biodata Cards on the Right (Scrollable) */}
         <Col xs={24} md={18} style={{ height: "calc(100vh - 100px)", overflowY: "auto" }}>

@@ -131,8 +131,8 @@ const DetailsBioData = () => {
         <SmileOutlined className="text-lime-500" /> <strong>Age:</strong> {userAge}
       </p>
       <p className="m-0">
-        <CalendarOutlined className="text-teal-500" /> <strong>Birth Date:</strong> {birthDate}
-      </p>
+  <CalendarOutlined className="text-teal-500" /> <strong>Birth Date:</strong> {new Date(birthDate).toISOString().split('T')[0]}
+</p>
       <p className="m-0">
         <PushpinOutlined className="text-teal-500" /> <strong>Height:</strong> {userHeight}
       </p>

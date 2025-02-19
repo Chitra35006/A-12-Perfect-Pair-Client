@@ -2,8 +2,10 @@ import React from "react";
 import { Card, Button } from "antd";
 import { UserOutlined, CalendarOutlined, SolutionOutlined, ArrowRightOutlined,EnvironmentOutlined  } from "@ant-design/icons";
 import { Link } from "react-router-dom";
+import useTheme from "../../hooks/useTheme";
 
 const PremiumUserCard = ({ premiumBiodata }) => {
+  const {theme} = useTheme();
   const { id, gender, _id, photo, permanentDivision, userAge, occupation } = premiumBiodata;
 
   // Normalize gender value to lowercase
@@ -27,7 +29,9 @@ const PremiumUserCard = ({ premiumBiodata }) => {
   const floatingClass = "absolute top-2 left-2 bg-black bg-opacity-60 text-white text-xs px-2 py-1 rounded-lg";
 
   return (
-    <Card className="p-4 rounded-lg shadow-lg hover:shadow-xl" hoverable>
+    <Card className={`p-4 rounded-lg border-2 shadow-lg hover:shadow-xl ${
+      theme === "dark" ? "bg-slate-950 border-gray-700" : "bg-white  border-gray-100"
+    }`}>
       {/* Image container with dynamic border */}
       <div className={`relative rounded-xl overflow-hidden mb-4 ${imgBorderColor}`}>
         <img src={photo} alt={`${id}-photo`} className="w-full h-48 object-cover" />
@@ -57,30 +61,32 @@ const PremiumUserCard = ({ premiumBiodata }) => {
       {/* Button */}
       <div className="w-full">
         <Link to={`/allBiodataDetails/${_id}`}>
-          <Button
-            className="w-full"
-            icon={<ArrowRightOutlined />}
-            style={{
-              backgroundColor: 'transparent',
-              color: '#365314',
-              borderBottom: '4px solid #84cc16',
-              fontWeight: 'bold',
-              borderRadius: '0.5rem',
-              transition: 'all 0.3s ease',
-            }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.backgroundColor = 'teal';
-              e.currentTarget.style.color = 'white';
-              e.currentTarget.style.borderBottom = "4px solid teal";
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.backgroundColor = 'transparent';
-              e.currentTarget.style.color = '#365314';
-              e.currentTarget.style.borderBottom = "4px solid #84cc16";
-            }}
-          >
-            View Profile
-          </Button>
+        <Button
+  className="w-full font-bold border-b-4 rounded-md transition-all duration-300
+             border-lime-400 text-green-800 bg-transparent 
+             dark:text-white dark:border-teal-500"
+  icon={<ArrowRightOutlined />}
+  style={{
+    transition: "all 0.3s ease",
+  }}
+  onMouseOver={(e) => {
+    e.currentTarget.style.backgroundColor = "teal";
+    e.currentTarget.style.color = "white";
+    e.currentTarget.style.borderBottom = "4px solid teal";
+  }}
+  onMouseOut={(e) => {
+    e.currentTarget.style.backgroundColor = "transparent";
+    e.currentTarget.style.color = document.documentElement.classList.contains("dark")
+      ? "white" // White text in dark mode
+      : "#365314"; // Green text in light mode
+    e.currentTarget.style.borderBottom = document.documentElement.classList.contains("dark")
+      ? "4px solid teal"
+      : "4px solid #84cc16";
+  }}
+>
+  View Profile
+</Button>
+
         </Link>
       </div>
     </Card>
