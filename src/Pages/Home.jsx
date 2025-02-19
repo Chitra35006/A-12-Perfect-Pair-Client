@@ -4,6 +4,9 @@ import Featured from "./Featured/Featured";
 import SuccessStory from "./SuccesStory/SuccessStory";
 import SuccessCounter from "./SuccessCounter/SuccessCounter";
 import PreimumUsers from "./PremimumUsers/PreimumUsers";
+import MemberShip from "./MemberShip/MemberShip";
+import CommunityStandards from "./CommunityStandards/CommunityStandards";
+
 
 
 const Home = () => {
@@ -13,6 +16,8 @@ const Home = () => {
            <Banner></Banner>
             <PreimumUsers></PreimumUsers>
            <Featured></Featured>
+           <MemberShip></MemberShip>
+           <CommunityStandards></CommunityStandards>
            <SuccessCounter></SuccessCounter>
            <SuccessStory></SuccessStory>
         </div>

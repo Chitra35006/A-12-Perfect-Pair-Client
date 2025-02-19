@@ -68,7 +68,7 @@ const Banner = () => {
                   {captions[currentSlide].description}
                 </p>
                 {/* <Button className="md:text-2xl text-base md:px-6 px-2 py-6 md:py-8 border-none font-bold bg-gradient-to-r from-lime-400 via-lime-500 to-green-700">Explore More</Button> */}
-              <PrimaryButton text="EXPLORE NOW"></PrimaryButton>
+              <PrimaryButton textSize="text-3xl"  text="EXPLORE NOW"></PrimaryButton>
               </div>
             </div>
 
