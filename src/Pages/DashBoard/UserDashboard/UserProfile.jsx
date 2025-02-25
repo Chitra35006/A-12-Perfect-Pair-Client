@@ -1,6 +1,7 @@
 import React from 'react';
 import useTheme from '../../../hooks/useTheme';
 import useBioData from '../../../hooks/useBioData';
+import { Helmet } from 'react-helmet';
 
 const UserProfile = () => {
     const { userBioData } = useBioData();
@@ -29,7 +30,11 @@ const UserProfile = () => {
     }
 
     return (
-        <div className="my-20 flex flex-col md:flex-row justify-between items-center bg-indigo-100 dark:bg-gray-900 p-6 rounded-lg shadow-lg border border-teal-500 dark:border-teal-400 max-w-4xl mx-auto">
+       <div>
+         <Helmet>
+        <title>Perfect Pair | My Profile</title>
+      </Helmet>
+         <div className="my-20 flex flex-col md:flex-row justify-between items-center bg-indigo-100 dark:bg-gray-900 p-6 rounded-lg shadow-lg border border-teal-500 dark:border-teal-400 max-w-4xl mx-auto">
             {/* Image Section */}
             <div className="flex-shrink-0">
                 <img
@@ -65,6 +70,7 @@ const UserProfile = () => {
                 </p>
             </div>
         </div>
+       </div>
     );
 };
 

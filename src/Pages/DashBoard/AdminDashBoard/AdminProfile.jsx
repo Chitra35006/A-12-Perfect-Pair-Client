@@ -28,7 +28,12 @@ const AdminProfile = () => {
     }
 
     return (
-        <div className="my-20 flex flex-col md:flex-row justify-between items-center bg-indigo-100 dark:bg-gray-900 p-6 rounded-lg shadow-lg border border-teal-500 dark:border-teal-400 max-w-4xl mx-auto">
+        
+       <div>
+         <Helmet>
+        <title>Perfect Pair | Admin Profile</title>
+      </Helmet>
+         <div className="my-20 flex flex-col md:flex-row justify-between items-center bg-indigo-100 dark:bg-gray-900 p-6 rounded-lg shadow-lg border border-teal-500 dark:border-teal-400 max-w-4xl mx-auto">
         {/* Image Section */}
         <div className="flex-shrink-0">
             <img
@@ -64,6 +69,7 @@ const AdminProfile = () => {
             </p>
         </div>
     </div>
+       </div>
     );
 };
 

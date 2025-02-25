@@ -1,31 +1,25 @@
 import React from 'react';
-import {ArrowRightOutlined } from "@ant-design/icons";
+import { Link } from 'react-router-dom';
+import { IoMdArrowRoundBack } from "react-icons/io";
+import Lottie from "lottie-react";
+import Four04Animation from "../../assets/Animation404.json"; //
 const Four04Page = () => {
     return (
-        <div className="h-screen flex justify-center items-center">
-        <div className="w-8/12">
-          <div className="flex justify-center items-center flex-col">
-            <div className='bg-indigo-900 p-4 my-10 rounded-2xl'>
-              <a
-                href="/"
-                className="flex items-center text-lime-300 hover:text-white font-semibold transition-colors duration-300"
-              >
-                <ArrowRightOutlined className="text-xl md:text-2xl" />
-                <span className="ml-1 text-sm md:text-base font-medium">Go Home</span>
-              </a>
-            </div>
-            <div className="bg-lime-300 p-20 border-dashed border-red-600 border-2">
-              <h2 className="md:text-6xl text-3xl text-indigo-900 text-center">
-                !!!{" "}404
-              </h2>
-              <h2 className="font-semibold w-full max-w-8xl text-red-700 p-4 md:rounded-full rounded-lg bg-red-400 text-center text-base md:text-xl">
-  Page Not Found
-</h2>
-
-            </div>
-          </div>
-        </div>
+      <div className='flex flex-col justify-center items-center min-h-screen text-center'>
+      {/* Lottie Animation */}
+      <div className="w-72 md:w-96">
+          <Lottie animationData={Four04Animation} loop={true} />
       </div>
+
+      {/* 404 Text */}
+
+      <p className='text-red-700 font-bold mt-2'>This page is not available</p>
+
+      {/* Home Button */}
+      <Link to='/' className="btn flex items-center gap-2 bg-indigo-950 hover:bg-blue-600 hover:text-white font-bold text-blue-300 border-none px-4 py-2 mt-4 rounded-lg">
+          <IoMdArrowRoundBack className="text-xl" /> Home
+      </Link>
+  </div>
       
     );
 };

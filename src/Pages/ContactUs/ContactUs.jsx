@@ -21,7 +21,7 @@ const ContactUs = () => {
         <div className="w-full md:w-1/3 space-y-6">
           <div className="flex items-center space-x-4">
             <FaPhone className="text-lime-500 text-2xl" />
-            <p>+880 123 456 789</p>
+            <p>+880 15 3376 5542</p>
           </div>
           <div className="flex items-center space-x-4">
             <FaEnvelope className="text-blue-500 text-2xl" />
